@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jun Tang - Homepage</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --nav-h: 48px;
+      --sidebar-w: 220px;
+      --accent: #1a56a4;
+      --accent2: #c47c00;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #e0e0e0;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      background: #fff;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      gap: 32px;
+    }
+
+    nav a {
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      color: #333;
+      font-weight: 500;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    nav a.active, nav a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ===== LAYOUT ===== */
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: var(--sidebar-w) 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+    }
+
+    .avatar-placeholder {
+      width: 180px;
+      height: 210px;
+      background: linear-gradient(135deg, #c8d8f0, #a0b8d8);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+      color: #fff;
+    }
+
+    /* Uncomment when you add photo.jpg:
+    .avatar {
+      width: 180px; height: 210px;
+      object-fit: cover; border-radius: 6px;
+    } */
+
+    .sidebar h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-top: 14px;
+      font-family: system-ui, sans-serif;
+    }
+
+    .sidebar .role {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      margin-top: 3px;
+    }
+
+    .sidebar .links {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar .links a, .sidebar .links span {
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sidebar .links a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ===== MAIN ===== */
+    main { min-width: 0; }
+
+    .about { margin-bottom: 36px; line-height: 1.8; }
+    .about p { margin-bottom: 10px; }
+
+    section { margin-bottom: 40px; }
+
+    .section-title {
+      font-family: system-ui, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ===== NEWS ===== */
+    .news-list {
+      max-height: 220px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+    .news-list::-webkit-scrollbar { width: 4px; }
+    .news-list::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
+    .news-list li {
+      list-style: disc;
+      margin-left: 20px;
+      margin-bottom: 7px;
+      font-size: 0.92rem;
+    }
+    .news-date { color: var(--muted); font-style: italic; }
+    .highlight { color: var(--accent2); font-weight: 600; }
+
+    /* ===== PROJECTS ===== */
+    .proj-item {
+      border-left: 3px solid var(--accent);
+      padding: 12px 18px;
+      margin-bottom: 20px;
+      background: #f7f9fc;
+      border-radius: 0 6px 6px 0;
+    }
+    .proj-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .proj-header h3 {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .proj-header .period {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+    }
+    .proj-role {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-family: system-ui, sans-serif;
+      font-weight: 600;
+      margin: 3px 0 8px;
+    }
+    .proj-item ul {
+      padding-left: 18px;
+      font-size: 0.88rem;
+      color: #333;
+    }
+    .proj-item li { margin-bottom: 4px; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tag {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-size: 0.78rem;
+      font-family: system-ui, sans-serif;
+      color: #444;
+    }
+    .tag.hl {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* ===== SKILLS ===== */
+    .skill-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      align-items: flex-start;
+    }
+    .skill-label {
+      font-family: system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      color: var(--muted);
+      min-width: 140px;
+      padding-top: 2px;
+    }
+
+    /* ===== HONORS ===== */
+    .honor-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .honor-table td { padding: 7px 8px; vertical-align: top; }
+    .honor-table td:first-child {
+      color: var(--muted);
+      white-space: nowrap;
+      font-style: italic;
+      width: 80px;
+    }
+    .honor-table tr:hover td { background: #f5f7fa; }
+
+    /* ===== EDUCATION ===== */
+    .edu-item { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+    .edu-logo {
+      width: 46px; height: 46px; border-radius: 6px;
+      background: #dde8f8; display: flex; align-items: center;
+      justify-content: center; font-weight: 700; color: var(--accent);
+      font-size: 0.65rem; text-align: center; flex-shrink: 0;
+      font-family: system-ui, sans-serif; line-height: 1.2;
+      padding: 4px;
+    }
+    .edu-body .degree { font-weight: 600; font-size: 0.93rem; }
+    .edu-body .school { color: var(--accent); font-size: 0.88rem; }
+    .edu-body .major { font-size: 0.83rem; color: var(--muted); }
+    .edu-body .period { font-size: 0.8rem; color: var(--muted); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 720px) {
+      .page { grid-template-columns: 1fr; padding: 20px; gap: 24px; }
+      .sidebar { position: static; }
+      nav { padding: 0 20px; gap: 16px; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="active">Homepage</a>
+  <a href="#news">News</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#honors">Honors</a>
+  <a href="#education">Education</a>
+</nav>
+
+<div class="page" id="home">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <!-- Replace with: <img class="avatar" src="photo.jpg" alt="Jun Tang" /> -->
+    <div class="avatar-placeholder">👤</div>
+
+    <h1>Jun Tang</h1>
+    <div class="role">Master's student in Cybersecurity</div>
+
+    <div class="links">
+      <span><span>📍</span> Sydney, Australia</span>
+      <a href="mailto:tangjun200104@gmail.com"><span>✉️</span> tangjun200104@gmail.com</a>
+      <span><span>📱</span> 0448 031 495</span>
+      <a href="https://github.com/JunTang10" target="_blank"><span>🐙</span> github.com/JunTang10</a>
+      <a href="https://linkedin.com/in/" target="_blank"><span>💼</span> LinkedIn（待填）</a>
+    </div>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+
+    <!-- About -->
+    <div class="about">
+      <p>
+        I am a Master's student in <strong>Cybersecurity</strong> at
+        <a href="https://www.sydney.edu.au" target="_blank">🏫 The University of Sydney</a>.
+        My interests span <strong>application security</strong>, <strong>cryptography</strong>,
+        and <strong>AI-driven threat detection</strong>.
+      </p>
+      <p>
+        I hold a B.Eng in <strong>Information Management and Information Systems</strong>
+        from <a href="https://www.suibe.edu.cn" target="_blank">🏫 Shanghai University of International Business and Economics (SUIBE)</a>.
+        Prior to my graduate studies, I gained industry experience as a
+        <strong>Back-Office System &amp; Network Operations Engineer</strong> at Orient Futures Co., Ltd.
+      </p>
+      <p>
+        I am open to research collaborations and opportunities in cybersecurity.
+        Feel free to reach out! 🚀
+      </p>
+    </div>
+
+    <!-- News -->
+    <section id="news">
+      <div class="section-title">🔥 News</div>
+      <ul class="news-list">
+        <li>
+          <span class="news-date">2025.07:</span>
+          🎓 Completing Master's degree in Cybersecurity at the University of Sydney.
+        </li>
+        <li>
+          <span class="news-date">2025.06:</span>
+          📱 Capstone project <em>iOS Phishing Detection System</em> — real-time multi-modal AI pipeline deployed and evaluated.
+        </li>
+        <li>
+          <span class="news-date">2025.02:</span>
+          🎒 Started Master of Cybersecurity at
+          <a href="https://www.sydney.edu.au" target="_blank"><span class="highlight">The University of Sydney</span></a>!
+        </li>
+        <li>
+          <span class="news-date">2024.09:</span>
+          💼 Started internship as Back-Office System &amp; Network Operations Engineer at
+          <span class="highlight">Orient Futures Co., Ltd.</span>
+        </li>
+        <li>
+          <span class="news-date">2024.01:</span>
+          📝 Achieved <span class="highlight">IELTS 6.5</span>.
+        </li>
+        <li>
+          <span class="news-date">2023:</span>
+          🏅 Received <span class="highlight">Third-Class Academic Scholarship</span> at SUIBE.
+        </li>
+        <li>
+          <span class="news-date">2022.12:</span>
+          📝 Passed <span class="highlight">CET-6</span> (College English Test Band 6).
+        </li>
+        <li>
+          <span class="news-date">2021.11:</span>
+          🥉 Won <span class="highlight">Third Prize</span> in Mathematical Contest in Modeling (MCM/ICM).
+        </li>
+      </ul>
+    </section>
+
+    <!-- Work Experience -->
+    <section id="experience">
+      <div class="section-title">💼 Work Experience</div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <h3>Orient Futures Co., Ltd.</h3>
+          <span class="period">2024/09 – 2024/12</span>
+        </div>
+        <div class="proj-role">Back-Office System &amp; Network Operations Engineer · Shanghai</div>
+        <ul>
+          <li>Maintained Hundsun-based futures back-office systems in a Linux environment (operations, configuration, daily support)</li>
+          <li>Assisted with deployment, network setup (bastion host), and gained exposure to disaster recovery systems</li>
+          <li>Supported reconciliation, troubleshooting, and compliance tasks (CSRC, MLPS Level 3)</li>
+        </ul>
+        <div class="tags">
+          <span class="tag hl">Linux</span>
+          <span class="tag hl">Networking</span>
+          <span class="tag">Hundsun System</span>
+          <span class="tag">MLPS Level 3</span>
+          <span class="tag">Bastion Host</span>
+          <span class="tag">Disaster Recovery</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-title">🔬 Projects</div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <h3>iOS Phishing Detection System</h3>
+          <span class="period">Capstone Project</span>
+        </div>
+        <div class="proj-role">Full-stack Security System · University of Sydney</div>
+        <ul>
+          <li>Built a real-time phishing detection system for iOS with a backend analysis pipeline</li>
+          <li>Processed multi-modal inputs (text, audio, video) and integrated AI-based risk analysis</li>
+        </ul>
+        <div class="tags">
+          <span class="tag hl">Swift</span>
+          <span class="tag hl">Python</span>
+          <span class="tag hl">FastAPI</span>
+          <span class="tag">AI / ML</span>
+          <span class="tag">Multi-modal</span>
+          <span class="tag">iOS</span>
+        </div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <h3>PRNG &amp; Quantum Entropy Security Framework</h3>
+          <span class="period">Course Project</span>
+        </div>
+        <div class="proj-role">Cryptography Research · University of Sydney</div>
+        <ul>
+          <li>Designed a robust PRNG framework incorporating quantum entropy for cryptographically secure randomness</li>
+          <li>Explored entropy starvation and recovery mechanisms in cloud environments</li>
+        </ul>
+        <div class="tags">
+          <span class="tag hl">Cryptography</span>
+          <span class="tag hl">Python</span>
+          <span class="tag">Quantum Entropy</span>
+          <span class="tag">Cloud Security</span>
+          <span class="tag">PRNG</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-title">🛠️ Technical Skills</div>
+      <div class="skill-row">
+        <span class="skill-label">Programming</span>
+        <div class="tags" style="margin-top:0">
+          <span class="tag hl">Python</span>
+          <span class="tag hl">Swift</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Systems &amp; Backend</span>
+        <div class="tags" style="margin-top:0">
+          <span class="tag hl">Linux</span>
+          <span class="tag hl">FastAPI</span>
+          <span class="tag">Networking</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Security</span>
+        <div class="tags" style="margin-top:0">
+          <span class="tag hl">Cryptography</span>
+          <span class="tag">Data Privacy</span>
+          <span class="tag">MLPS</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Databases</span>
+        <div class="tags" style="margin-top:0">
+          <span class="tag">MySQL</span>
+          <span class="tag">Microsoft SQL Server</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-label">Tools &amp; Other</span>
+        <div class="tags" style="margin-top:0">
+          <span class="tag">Git</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">SPSS</span>
+          <span class="tag">SAP</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Honors -->
+    <section id="honors">
+      <div class="section-title">🏅 Honors &amp; Certifications</div>
+      <table class="honor-table">
+        <tr>
+          <td>2024.01</td>
+          <td>IELTS 6.5</td>
+        </tr>
+        <tr>
+          <td>2023</td>
+          <td>Third-Class Academic Scholarship, Shanghai University of International Business and Economics</td>
+        </tr>
+        <tr>
+          <td>2022.12</td>
+          <td>CET-6 (College English Test Band 6)</td>
+        </tr>
+        <tr>
+          <td>2021.11</td>
+          <td>Mathematical Contest in Modeling (MCM/ICM) — Third Prize</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <div class="section-title">🎓 Education</div>
+
+      <div class="edu-item">
+        <div class="edu-logo" style="background:#e8f0fb; color:#1a56a4;">USyd</div>
+        <div class="edu-body">
+          <div class="degree">Master of Cybersecurity</div>
+          <div class="school"><a href="https://www.sydney.edu.au" target="_blank">The University of Sydney</a></div>
+          <div class="major">Cybersecurity</div>
+          <div class="period">2024 – 2025</div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-logo" style="background:#fef3e2; color:#b45309;">SUIBE</div>
+        <div class="edu-body">
+          <div class="degree">Bachelor of Engineering</div>
+          <div class="school"><a href="https://www.suibe.edu.cn" target="_blank">Shanghai University of International Business and Economics</a></div>
+          <div class="major">Information Management and Information Systems</div>
+          <div class="period">2019 – 2023</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
