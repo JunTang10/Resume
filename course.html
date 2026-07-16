@@ -1,5 +1,4 @@
-
-href="index.html"<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -546,7 +545,12 @@ href="index.html"<!DOCTYPE html>
 
   <div class="page">
     <aside class="sidebar">
-      <div class="avatar-placeholder" aria-label="Profile photo placeholder">👤</div>
+     
+    <img
+      class="avatar"
+      src="assets/images/avatar01.JPG"
+      alt="Jun Tang"
+    />
 
       <h1>Jun Tang</h1>
       <div class="role">Master's student in Cybersecurity</div>
@@ -1003,27 +1007,28 @@ terms: [
 
     let lastFocusedElement = null;
 
-    function openModal(category) {
-      const group = courseGroups[category];
+    modalCourses.replaceChildren();
 
-      if (!group) {
-        return;
-      }
+    group.terms.forEach((term) => {
+      const termGroup = document.createElement("div");
+      termGroup.className = "term-group";
 
-      lastFocusedElement = document.activeElement;
+      const termHeading = document.createElement("h4");
+      termHeading.className = "term-heading";
+      termHeading.textContent = term.label;
 
-      modalTitle.textContent = group.title;
-      modalDescription.textContent = group.description;
-      modalResource.href = group.resource;
+      const courseList = document.createElement("ul");
 
-      modalCourses.replaceChildren();
-
-      group.courses.forEach((course) => {
+      term.courses.forEach((course) => {
         const listItem = document.createElement("li");
         listItem.textContent = course;
-        modalCourses.appendChild(listItem);
+        courseList.appendChild(listItem);
       });
-<!--  -->
+
+      termGroup.appendChild(termHeading);
+      termGroup.appendChild(courseList);
+      modalCourses.appendChild(termGroup);
+    });
       modal.style.setProperty("--modal-color", group.color);
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");

@@ -33,42 +33,40 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: #fff;
-      border-bottom: 1px solid var(--border);
       height: var(--nav-h);
       display: flex;
       align-items: center;
+      justify-content: center;
+      gap: 0;
       padding: 0 40px;
-      gap: 32px;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
     }
 
     nav a {
+      position: relative;
+      padding: 4px 18px;
+      border-bottom: 2px solid transparent;
+      color: #333;
       font-family: system-ui, sans-serif;
       font-size: 14px;
-      color: #333;
       font-weight: 500;
-      padding: 4px 0;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.15s;
+      transition: color 0.15s, border-color 0.15s;
     }
 
-    nav a.active, nav a:hover {
+    nav a + a::before {
+      content: "|";
+      position: absolute;
+      left: -3px;
+      color: #888;
+    }
+
+    nav a:hover,
+    nav a.active {
       color: var(--accent);
       border-bottom-color: var(--accent);
       text-decoration: none;
     }
-
-    /* ===== LAYOUT ===== */
-    .page {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 40px;
-      display: grid;
-      grid-template-columns: var(--sidebar-w) 1fr;
-      gap: 48px;
-      align-items: start;
-    }
-
     /* ===== SIDEBAR ===== */
     .sidebar {
       position: sticky;
