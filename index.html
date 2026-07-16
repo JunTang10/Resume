@@ -228,6 +228,195 @@
       font-size: 0.8rem;
     }
 
+    /* ===== EXPERIENCE / PROJECT IMAGE LAYOUT ===== */
+    .media-entry {
+      position: relative;
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+      padding: 4px 0 24px;
+      margin-bottom: 24px;
+      overflow: visible;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .media-entry:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .media-entry .plain-entry {
+      margin-bottom: 0;
+      min-width: 0;
+    }
+
+    .entry-image {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      padding: 0;
+      overflow: hidden;
+      cursor: zoom-in;
+      background: #f5f7fa;
+      border: 1px solid #d7dce3;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      font: inherit;
+      transform-origin: left center;
+      transition:
+        transform 0.24s ease,
+        border-color 0.18s ease,
+        box-shadow 0.24s ease;
+    }
+
+    /* Desktop: move the pointer over the image to enlarge it */
+    @media (hover: hover) and (pointer: fine) {
+      .entry-image:hover,
+      .entry-image:focus-visible {
+        z-index: 30;
+        transform: scale(1.65);
+        border-color: var(--accent);
+        box-shadow: 0 16px 42px rgba(0, 0, 0, 0.3);
+      }
+
+      .entry-image:hover img,
+      .entry-image:focus-visible img {
+        transform: none;
+      }
+    }
+
+    .entry-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.2s ease;
+    }
+
+
+    .entry-image-placeholder {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      color: #707782;
+      font-family: system-ui, sans-serif;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(26, 86, 164, 0.05), rgba(196, 124, 0, 0.05)),
+        #f5f7fa;
+    }
+
+    .entry-image.is-missing .entry-image-placeholder {
+      display: flex;
+    }
+
+    .entry-image.is-missing img {
+      display: none;
+    }
+
+    .zoom-hint {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.66);
+      font-family: system-ui, sans-serif;
+      font-size: 18px;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    /* ===== IMAGE LIGHTBOX ===== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      background: rgba(0, 0, 0, 0.78);
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      width: min(1180px, 94vw);
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-image {
+      display: block;
+      width: 100%;
+      max-width: 1180px;
+      max-height: 88vh;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .lightbox-message {
+      display: none;
+      width: min(560px, 90vw);
+      padding: 36px 28px;
+      color: #333;
+      background: #fff;
+      border-radius: 6px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .lightbox.show-message .lightbox-image {
+      display: none;
+    }
+
+    .lightbox.show-message .lightbox-message {
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #222;
+      background: #fff;
+      font-family: system-ui, sans-serif;
+      font-size: 24px;
+      line-height: 1;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.28);
+    }
+
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
     .honor-table {
       width: 100%;
       border-collapse: collapse;
@@ -248,10 +437,43 @@
     }
 
     /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .media-entry {
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .entry-image:hover,
+        .entry-image:focus-visible {
+          transform: scale(1.45);
+        }
+      }
+    }
+
     @media (max-width: 720px) {
       .page { grid-template-columns: 1fr; padding: 20px; gap: 24px; }
       .sidebar { position: static; }
       nav { padding: 0 20px; gap: 16px; overflow-x: auto; }
+
+      .media-entry {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .entry-image {
+        max-width: 520px;
+        transform: none;
+      }
+
+      .lightbox {
+        padding: 18px;
+      }
+
+      .lightbox-close {
+        top: -12px;
+        right: -8px;
+      }
     }
   </style>
 </head>
@@ -354,28 +576,47 @@
     <section id="experience">
       <div class="section-title">💼 Work Experience</div>
 
-      <div class="plain-entry">
-        <div class="plain-entry-header">
-          <h3>
-            <a href="https://www.orientfutures.com/" target="_blank" rel="noreferrer">
-              Orient Futures Co., Ltd.
-            </a>
-          </h3>
-          <span class="plain-period">2024/09 – 2024/12</span>
-        </div>
+      <div class="media-entry">
+        <!-- Put the image at: assets/images/work-orient-futures.jpg -->
+        <button
+          class="entry-image"
+          type="button"
+          data-full="assets/images/work-orient-futures.jpg"
+          aria-label="Enlarge Orient Futures work image"
+        >
+          <img
+            src="assets/images/work-orient-futures.jpg"
+            alt="Orient Futures work experience"
+          />
+          <span class="entry-image-placeholder">
+            Add image:<br />assets/images/work-orient-futures.jpg
+          </span>
+          <span class="zoom-hint" aria-hidden="true">+</span>
+        </button>
 
-        <div class="plain-subtitle">
-          Back-Office System &amp; Network Operations Engineer · Shanghai
-        </div>
+        <div class="plain-entry">
+          <div class="plain-entry-header">
+            <h3>
+              <a href="https://www.orientfutures.com/" target="_blank" rel="noreferrer">
+                Orient Futures Co., Ltd.
+              </a>
+            </h3>
+            <span class="plain-period">2024/09 – 2024/12</span>
+          </div>
 
-        <ul>
-          <li>Maintained Hundsun-based futures back-office systems in a Linux environment.</li>
-          <li>Assisted with deployment, network configuration, bastion hosts and disaster recovery systems.</li>
-          <li>Supported reconciliation, troubleshooting and compliance-related work.</li>
-        </ul>
+          <div class="plain-subtitle">
+            Back-Office System &amp; Network Operations Engineer · Shanghai
+          </div>
 
-        <div class="plain-detail">
-          Linux · Networking · Hundsun System · MLPS Level 3 · Bastion Host · Disaster Recovery
+          <ul>
+            <li>Maintained Hundsun-based futures back-office systems in a Linux environment.</li>
+            <li>Assisted with deployment, network configuration, bastion hosts and disaster recovery systems.</li>
+            <li>Supported reconciliation, troubleshooting and compliance-related work.</li>
+          </ul>
+
+          <div class="plain-detail">
+            Linux · Networking · Hundsun System · MLPS Level 3 · Bastion Host · Disaster Recovery
+          </div>
         </div>
       </div>
     </section>
@@ -384,43 +625,81 @@
     <section id="projects">
       <div class="section-title">🔬 Projects</div>
 
-      <div class="plain-entry">
-        <div class="plain-entry-header">
-          <h3>iOS Phishing Detection System</h3>
-          <span class="plain-period">Capstone Project</span>
-        </div>
+      <div class="media-entry">
+        <!-- Put the image at: assets/images/project-phishguard.jpg -->
+        <button
+          class="entry-image"
+          type="button"
+          data-full="assets/images/project-phishguard.jpg"
+          aria-label="Enlarge iOS phishing detection project image"
+        >
+          <img
+            src="assets/images/project-phishguard.jpg"
+            alt="iOS phishing detection system"
+          />
+          <span class="entry-image-placeholder">
+            Add image:<br />assets/images/project-phishguard.jpg
+          </span>
+          <span class="zoom-hint" aria-hidden="true">+</span>
+        </button>
 
-        <div class="plain-subtitle">
-          Full-stack Security System · University of Sydney
-        </div>
+        <div class="plain-entry">
+          <div class="plain-entry-header">
+            <h3>iOS Phishing Detection System</h3>
+            <span class="plain-period">Capstone Project</span>
+          </div>
 
-        <ul>
-          <li>Built a real-time phishing detection system for iOS with a backend analysis pipeline.</li>
-          <li>Processed text, audio and video inputs and integrated AI-based risk analysis.</li>
-        </ul>
+          <div class="plain-subtitle">
+            Full-stack Security System · University of Sydney
+          </div>
 
-        <div class="plain-detail">
-          Swift · Python · FastAPI · AI/ML · Multimodal Processing · iOS
+          <ul>
+            <li>Built a real-time phishing detection system for iOS with a backend analysis pipeline.</li>
+            <li>Processed text, audio and video inputs and integrated AI-based risk analysis.</li>
+          </ul>
+
+          <div class="plain-detail">
+            Swift · Python · FastAPI · AI/ML · Multimodal Processing · iOS
+          </div>
         </div>
       </div>
 
-      <div class="plain-entry">
-        <div class="plain-entry-header">
-          <h3>PRNG &amp; Quantum Entropy Security Framework</h3>
-          <span class="plain-period">Course Project</span>
-        </div>
+      <div class="media-entry">
+        <!-- Put the image at: assets/images/project-prng.jpg -->
+        <button
+          class="entry-image"
+          type="button"
+          data-full="assets/images/project-prng.jpg"
+          aria-label="Enlarge PRNG and quantum entropy project image"
+        >
+          <img
+            src="assets/images/project-prng.jpg"
+            alt="PRNG and quantum entropy security framework"
+          />
+          <span class="entry-image-placeholder">
+            Add image:<br />assets/images/project-prng.jpg
+          </span>
+          <span class="zoom-hint" aria-hidden="true">+</span>
+        </button>
 
-        <div class="plain-subtitle">
-          Cryptography Research · University of Sydney
-        </div>
+        <div class="plain-entry">
+          <div class="plain-entry-header">
+            <h3>PRNG &amp; Quantum Entropy Security Framework</h3>
+            <span class="plain-period">Course Project</span>
+          </div>
 
-        <ul>
-          <li>Designed a PRNG framework incorporating quantum entropy for secure randomness.</li>
-          <li>Explored entropy starvation and recovery mechanisms in cloud environments.</li>
-        </ul>
+          <div class="plain-subtitle">
+            Cryptography Research · University of Sydney
+          </div>
 
-        <div class="plain-detail">
-          Cryptography · Python · Quantum Entropy · Cloud Security · PRNG
+          <ul>
+            <li>Designed a PRNG framework incorporating quantum entropy for secure randomness.</li>
+            <li>Explored entropy starvation and recovery mechanisms in cloud environments.</li>
+          </ul>
+
+          <div class="plain-detail">
+            Cryptography · Python · Quantum Entropy · Cloud Security · PRNG
+          </div>
         </div>
       </div>
     </section>
@@ -500,9 +779,70 @@
   </main>
 </div>
 
+<!-- Reusable full-screen image viewer -->
+<div class="lightbox" id="image-lightbox" role="dialog" aria-modal="true" aria-label="Expanded image">
+  <div class="lightbox-content">
+    <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+    <div class="lightbox-message">
+      The image file has not been added yet.<br />
+      Put the image in the path shown inside this frame, then refresh the page.
+    </div>
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image">×</button>
+  </div>
+</div>
+
 <script>
-  // Navigation links point to separate pages, so no scroll-based
-  // active-link observer is required on this page.
+  const lightbox = document.getElementById("image-lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+  const lightboxClose = document.getElementById("lightbox-close");
+  const imageButtons = document.querySelectorAll(".entry-image");
+
+  imageButtons.forEach((button) => {
+    const thumbnail = button.querySelector("img");
+
+    function markMissingImage() {
+      button.classList.add("is-missing");
+    }
+
+    thumbnail.addEventListener("error", markMissingImage);
+
+    if (thumbnail.complete && thumbnail.naturalWidth === 0) {
+      markMissingImage();
+    }
+
+    button.addEventListener("click", () => {
+      lightbox.classList.remove("show-message");
+
+      if (button.classList.contains("is-missing")) {
+        lightbox.classList.add("show-message");
+      } else {
+        lightboxImage.src = button.dataset.full || thumbnail.currentSrc || thumbnail.src;
+        lightboxImage.alt = thumbnail.alt;
+      }
+
+      lightbox.classList.add("is-open");
+      document.body.classList.add("lightbox-open");
+      lightboxClose.focus();
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove("is-open", "show-message");
+    document.body.classList.remove("lightbox-open");
+    lightboxImage.src = "";
+  }
+
+  lightboxClose.addEventListener("click", closeLightbox);
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
 </script>
 
 </body>
