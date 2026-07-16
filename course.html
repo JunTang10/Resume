@@ -127,6 +127,15 @@
       font-size: 72px;
     }
 
+    .avatar {
+      display: block;
+      width: 180px;
+      height: 210px;
+      border-radius: 6px;
+      object-fit: cover;
+      object-position: center;
+    }
+
     .sidebar h1 {
       margin-top: 14px;
       font-family: system-ui, sans-serif;
@@ -186,9 +195,39 @@
 
     .degree-heading {
       margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
       font-family: system-ui, sans-serif;
       font-size: 1.1rem;
       font-weight: 700;
+    }
+
+    .transcript-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: #777;
+      font-size: 0.72rem;
+      font-weight: 500;
+      line-height: 1;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+    }
+
+    .transcript-link svg {
+      width: 14px;
+      height: 14px;
+      flex: 0 0 auto;
+      stroke: currentColor;
+    }
+
+    .transcript-link:hover,
+    .transcript-link:focus-visible {
+      color: var(--accent);
+      text-decoration: none;
+      outline: none;
     }
 
     .degree-subtitle {
@@ -586,7 +625,22 @@
       <!-- ===== MASTER'S COURSEWORK ===== -->
 
       <section class="degree-section">
-        <div class="degree-heading">Master's Coursework</div>
+        <div class="degree-heading">
+          <span>Master's Coursework</span>
+          <a
+            class="transcript-link"
+            href="assets/files/master-transcript.pdf"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open master's transcript"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 2.75h8l4 4V21.25H6z" stroke-width="1.7" stroke-linejoin="round" />
+              <path d="M14 2.75v4h4M9 12h6M9 15.5h6" stroke-width="1.7" stroke-linecap="round" />
+            </svg>
+            <span>Transcript</span>
+          </a>
+        </div>
         <div class="degree-subtitle">
           The University of Sydney · Master of Cybersecurity · 2024–2026
         </div>
@@ -625,7 +679,22 @@
       <!-- ===== BACHELOR'S COURSEWORK ===== -->
 
       <section class="degree-section">
-        <div class="degree-heading">Bachelor's Coursework</div>
+        <div class="degree-heading">
+          <span>Bachelor's Coursework</span>
+          <a
+            class="transcript-link"
+            href="assets/files/bachelor-transcript.pdf"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open bachelor's transcript"
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 2.75h8l4 4V21.25H6z" stroke-width="1.7" stroke-linejoin="round" />
+              <path d="M14 2.75v4h4M9 12h6M9 15.5h6" stroke-width="1.7" stroke-linecap="round" />
+            </svg>
+            <span>Transcript</span>
+          </a>
+        </div>
         <div class="degree-subtitle">
           Shanghai University of International Business and Economics ·
           B.Eng. in Information Management and Information Systems · 2019–2023
@@ -1007,28 +1076,41 @@ terms: [
 
     let lastFocusedElement = null;
 
-    modalCourses.replaceChildren();
+    function openModal(category) {
+      const group = courseGroups[category];
 
-    group.terms.forEach((term) => {
-      const termGroup = document.createElement("div");
-      termGroup.className = "term-group";
+      if (!group) {
+        return;
+      }
 
-      const termHeading = document.createElement("h4");
-      termHeading.className = "term-heading";
-      termHeading.textContent = term.label;
+      lastFocusedElement = document.activeElement;
 
-      const courseList = document.createElement("ul");
+      modalTitle.textContent = group.title;
+      modalDescription.textContent = group.description;
+      modalResource.href = group.resource;
+      modalCourses.replaceChildren();
 
-      term.courses.forEach((course) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = course;
-        courseList.appendChild(listItem);
+      group.terms.forEach((term) => {
+        const termGroup = document.createElement("div");
+        termGroup.className = "term-group";
+
+        const termHeading = document.createElement("h4");
+        termHeading.className = "term-heading";
+        termHeading.textContent = term.label;
+
+        const courseList = document.createElement("ul");
+
+        term.courses.forEach((course) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = course;
+          courseList.appendChild(listItem);
+        });
+
+        termGroup.appendChild(termHeading);
+        termGroup.appendChild(courseList);
+        modalCourses.appendChild(termGroup);
       });
 
-      termGroup.appendChild(termHeading);
-      termGroup.appendChild(courseList);
-      modalCourses.appendChild(termGroup);
-    });
       modal.style.setProperty("--modal-color", group.color);
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
