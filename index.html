@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jun Tang | Main</title>
+  <title>Jun Tang - Homepage</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -274,8 +274,9 @@
 <body>
 
 <nav>
-  <a href="index.html" class="active">Main</a>
-  <a href="courses.html">Courses</a>
+  <a href="#about" class="active">About</a>
+  <a href="#education">Education</a>
+  <a href="#writings">Writings</a>
 </nav>
 
 <div class="page" id="about">
@@ -320,19 +321,7 @@
       </p>
     </div>
 
-    <!-- News 
-     
-    
-    这一块需要改成技能1！！！！！！！！！！！！！！！！！！！
-    ！！！！！！！！！
-    ！！！！！！
-
-    ！！！！！！！！
-
-    ！！！！！！！
-    
-    
-    -->
+    <!-- News -->
     <section id="news">
       <div class="section-title">🔥 News</div>
       <ul class="news-list">
@@ -537,6 +526,21 @@
 
   </main>
 </div>
+
+<script>
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
 
 </body>
 </html>
