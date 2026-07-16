@@ -1,0 +1,1057 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jun Tang | Courses</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --nav-h: 48px;
+      --sidebar-w: 220px;
+      --accent: #1a56a4;
+      --text: #1a1a1a;
+      --muted: #5a5a5a;
+      --border: #e0e0e0;
+
+      --note-yellow: #efe55d;
+      --note-blue: #68c3e6;
+      --note-orange: #f1b14d;
+      --note-green: #9fe1c7;
+      --note-purple: #bdb7f2;
+      --note-pink: #f2c3cf;
+      --note-cream: #f2df9b;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      background: #fff;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* ===== NAV ===== */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding: 0 40px;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav a {
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      color: #333;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ===== PAGE LAYOUT ===== */
+
+    .page {
+      width: min(1320px, 100%);
+      margin: 0 auto;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+    }
+
+    .avatar-placeholder {
+      width: 180px;
+      height: 210px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #c8d8f0, #a0b8d8);
+      color: #fff;
+      font-size: 72px;
+    }
+
+    .sidebar h1 {
+      margin-top: 14px;
+      font-family: system-ui, sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .sidebar .role {
+      margin-top: 3px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .sidebar .links {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar .links a,
+    .sidebar .links span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #333;
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+    }
+
+    .sidebar .links a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    .page-title {
+      margin-bottom: 10px;
+      font-family: system-ui, sans-serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+    }
+
+    .intro {
+      max-width: 900px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .degree-section {
+      margin-bottom: 46px;
+    }
+
+    .degree-heading {
+      margin-bottom: 6px;
+      font-family: system-ui, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .degree-subtitle {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.86rem;
+    }
+
+    /* ===== NOTE CARDS ===== */
+
+    .note-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(240px, 1fr));
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .bachelor-grid {
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+    }
+
+    .note-card {
+      min-height: 300px;
+      padding: 24px 28px 26px;
+      border-radius: 14px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .note-card h3 {
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .card-description {
+      margin-bottom: 12px;
+      color: #333;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .note-card ul {
+      margin-top: 6px;
+      padding-left: 22px;
+    }
+
+    .note-card li {
+      margin-bottom: 7px;
+    }
+
+    .card-open {
+      align-self: flex-start;
+      margin-top: auto;
+      padding: 12px 0 0;
+      border: 0;
+      border-bottom: 1px solid transparent;
+      background: transparent;
+      color: #111;
+      cursor: pointer;
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .card-open:hover,
+    .card-open:focus-visible {
+      border-bottom-color: #111;
+      outline: none;
+    }
+
+    .yellow { background: var(--note-yellow); }
+    .blue { background: var(--note-blue); }
+    .orange { background: var(--note-orange); }
+    .green { background: var(--note-green); }
+    .purple { background: var(--note-purple); }
+    .pink { background: var(--note-pink); }
+    .cream { background: var(--note-cream); }
+
+
+    /* ===== COMPACT ADDITIONAL COURSEWORK ===== */
+    .additional-details {
+    margin-top: 24px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    }
+
+    .additional-details summary {
+    position: relative;
+    padding: 13px 34px 13px 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: system-ui, sans-serif;
+    }
+
+    .additional-details summary::-webkit-details-marker {
+    display: none;
+    }
+
+    .additional-details summary::after {
+    content: "+";
+    position: absolute;
+    right: 4px;
+    top: 9px;
+    color: var(--accent);
+    font-size: 1.35rem;
+    font-weight: 400;
+    }
+
+    .additional-details[open] summary::after {
+    content: "−";
+    }
+
+    .additional-summary-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text);
+    }
+
+    .additional-summary-text {
+    margin-left: 8px;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 400;
+    }
+
+    .additional-content {
+    padding: 2px 0 16px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 26px;
+    }
+
+    .additional-group h4 {
+    margin-bottom: 4px;
+    font-family: system-ui, sans-serif;
+    font-size: 0.8rem;
+    color: #333;
+    }
+
+    .additional-group p {
+    color: #555;
+    font-family: system-ui, sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.55;
+    }
+
+    @media (max-width: 720px) {
+    .additional-summary-text {
+        display: block;
+        margin: 2px 0 0;
+    }
+
+    .additional-content {
+        grid-template-columns: 1fr;
+    }
+    }
+    
+
+    /* ===== MODAL ===== */
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      padding: 24px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.68);
+    }
+
+    .modal-overlay.is-open {
+      display: flex;
+    }
+
+    .course-modal {
+      width: min(680px, 100%);
+      max-height: min(760px, 90vh);
+      overflow-y: auto;
+      border: 3px solid #111;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 14px 42px rgba(0, 0, 0, 0.35);
+    }
+
+    .modal-header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 22px 60px 16px 28px;
+      border-bottom: 2px solid #111;
+      background: var(--modal-color, #fff);
+    }
+
+    .modal-header h2 {
+      font-size: 1.55rem;
+      line-height: 1.25;
+    }
+
+    .modal-header p {
+      margin-top: 4px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      width: 34px;
+      height: 34px;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: #111;
+      cursor: pointer;
+      font-family: system-ui, sans-serif;
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+
+    .modal-close:hover,
+    .modal-close:focus-visible {
+      background: rgba(255, 255, 255, 0.5);
+      outline: 2px solid #111;
+    }
+
+    .modal-body {
+      background: var(--modal-color, #fff);
+    }
+
+    .modal-section {
+      padding: 20px 30px;
+      border-bottom: 2px solid #111;
+    }
+
+    .modal-section:last-child {
+      border-bottom: 0;
+    }
+
+    .modal-section h3 {
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+    }
+
+    .modal-section ul {
+      padding-left: 22px;
+    }
+
+    .modal-section li {
+      margin-bottom: 5px;
+    }
+     /* ===== 版本2 ===== */
+    .term-groups {
+      margin-top: 4px;
+    }
+
+    .term-group {
+      padding-bottom: 4px;
+    }
+
+    .term-group + .term-group {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1.5px solid rgba(0, 0, 0, 0.58);  /* ===== 加横线 ===== */
+    }
+
+    .term-heading {
+      margin-bottom: 7px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .term-group ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+
+    .resource-link {
+      display: inline-block;
+      color: #111;
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    /* ===== RESPONSIVE ===== */
+
+    @media (max-width: 1100px) {
+      .note-grid,
+      .bachelor-grid {
+        grid-template-columns: repeat(2, minmax(260px, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      nav {
+        gap: 16px;
+        padding: 0 20px;
+        overflow-x: auto;
+      }
+
+      .page {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 20px;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .note-grid,
+      .bachelor-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .note-card {
+        min-height: auto;
+      }
+
+      .modal-overlay {
+        padding: 12px;
+      }
+
+      .modal-header,
+      .modal-section {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .modal-header {
+        padding-right: 58px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html">Main</a>
+    <a href="course.html" class="active">Courses</a>
+  </nav>
+
+  <div class="page">
+    <aside class="sidebar">
+      <div class="avatar-placeholder" aria-label="Profile photo placeholder">👤</div>
+
+      <h1>Jun Tang</h1>
+      <div class="role">Master's student in Cybersecurity</div>
+
+      <div class="links">
+        <span><span aria-hidden="true">📍</span> Sydney, Australia</span>
+        <a href="mailto:tangjun200104@gmail.com">
+          <span aria-hidden="true">✉️</span>
+          tangjun200104@gmail.com
+        </a>
+        <span><span aria-hidden="true">📱</span> 0448 031 495</span>
+        <a href="https://github.com/JunTang10" target="_blank" rel="noreferrer">
+          <span aria-hidden="true">🐙</span>
+          github.com/JunTang10
+        </a>
+        <a href="https://linkedin.com/in/" target="_blank" rel="noreferrer">
+          <span aria-hidden="true">💼</span>
+          LinkedIn
+        </a>
+      </div>
+    </aside>
+
+    <main>
+      <div class="page-title">📚 Courses</div>
+
+      <div class="intro">
+        My coursework spans cybersecurity, cloud and security engineering,
+        cryptography, computing foundations, data analytics, information systems,
+        and business. The cards provide a concise overview; detailed undergraduate
+        course lists are available in the pop-up panels.
+      </div>
+
+      <!-- ===== MASTER'S COURSEWORK ===== -->
+
+      <section class="degree-section">
+        <div class="degree-heading">Master's Coursework</div>
+        <div class="degree-subtitle">
+          The University of Sydney · Master of Cybersecurity · 2024–2026
+        </div>
+
+        <div class="note-grid">
+          <article class="note-card yellow">
+            <h3>Cybersecurity and Management</h3>
+            <ul>
+              <li><strong>CISS6022</strong> – Cybersecurity</li>
+              <li><strong>INFO5301</strong> – Information Security Management</li>
+              <li><strong>INFO5990</strong> – Professional Practice in IT</li>
+              <li><strong>INFO5992</strong> – Understanding IT Innovations</li>
+            </ul>
+          </article>
+
+          <article class="note-card blue">
+            <h3>Security Engineering and Cloud</h3>
+            <ul>
+              <li><strong>CSEC5615</strong> – Cloud Security</li>
+              <li><strong>CSEC5616</strong> – Security Engineering</li>
+            </ul>
+          </article>
+
+          <article class="note-card orange">
+            <h3>Cryptography, Privacy and Computing</h3>
+            <ul>
+              <li><strong>CSEC5614</strong> – Data Privacy</li>
+              <li><strong>CSEC5619</strong> – Cryptography</li>
+              <li><strong>COMP9001</strong> – Introduction to Programming</li>
+              <li><strong>COMP5318</strong> – Machine Learning and Data Mining</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== BACHELOR'S COURSEWORK ===== -->
+
+      <section class="degree-section">
+        <div class="degree-heading">Bachelor's Coursework</div>
+        <div class="degree-subtitle">
+          Shanghai University of International Business and Economics ·
+          B.Eng. in Information Management and Information Systems · 2019–2023
+        </div>
+
+        <div class="note-grid bachelor-grid">
+          <article class="note-card green">
+            <h3>Computer Science Foundations</h3>
+            <p class="card-description">
+              Foundational study in programming, algorithms, databases, networks,
+              software development, and discrete mathematics.
+            </p>
+            <ul>
+              <li>Programming: C, Java and Python</li>
+              <li>Data Structures</li>
+              <li>Database Systems</li>
+              <li>Computer Networks</li>
+              <li>Discrete Mathematics</li>
+            </ul>
+            <button class="card-open" type="button" data-category="computer-science">
+              View coursework →
+            </button>
+          </article>
+
+          <article class="note-card purple">
+            <h3>Data Analytics and Statistics</h3>
+            <p class="card-description">
+              Quantitative coursework covering statistics, econometrics, data mining,
+              visualisation, and statistical computing.
+            </p>
+            <ul>
+              <li>Probability and Mathematical Statistics</li>
+              <li>Computational Statistics</li>
+              <li>Data Mining and Big Data Analysis</li>
+              <li>Data Visualisation</li>
+              <li>Econometrics and SPSS</li>
+            </ul>
+            <button class="card-open" type="button" data-category="data-analytics">
+              View coursework →
+            </button>
+          </article>
+
+          <article class="note-card pink">
+            <h3>Information Systems</h3>
+            <p class="card-description">
+              Coursework focused on systems analysis, enterprise platforms,
+              information management, and IT project delivery.
+            </p>
+            <ul>
+              <li>Information Systems Analysis and Design</li>
+              <li>Management Information Systems</li>
+              <li>ERP and SAP Simulation</li>
+              <li>IT Project Management</li>
+              <li>Software Engineering</li>
+            </ul>
+            <button class="card-open" type="button" data-category="information-systems">
+              View coursework →
+            </button>
+          </article>
+
+          <article class="note-card cream">
+            <h3>Business and Management</h3>
+            <p class="card-description">
+              Business foundations in economics, management, accounting,
+              operations, finance, law, and strategic decision-making.
+            </p>
+            <ul>
+              <li>Microeconomics and Macroeconomics</li>
+              <li>Management and Accounting</li>
+              <li>Operations Research</li>
+              <li>Public Finance and Economic Law</li>
+              <li>Game Theory and Investment</li>
+            </ul>
+            <button class="card-open" type="button" data-category="business-management">
+              View coursework →
+            </button>
+          </article>
+        </div>
+
+        <details class="additional-details">
+            <summary>
+                <span class="additional-summary-title">
+                Additional Coursework
+                </span>
+
+                <span class="additional-summary-text">
+                29 courses · Languages, humanities, professional development and general education
+                </span>
+            </summary>
+
+            <div class="additional-content">
+                <div class="additional-group">
+                <h4>Languages and Communication</h4>
+                <p>
+                    Comprehensive English (Listening and Speaking II–IV);
+                    Comprehensive English (Reading and Writing II–IV);
+                    Academic English; Business English Simulation Training;
+                    College Chinese; Interview Skills.
+                </p>
+                </div>
+
+                <div class="additional-group">
+                <h4>Humanities and Culture</h4>
+                <p>
+                    Outline of Chinese Modern History;
+                    Modern History of Shanghai Culture;
+                    Australian Outlook;
+                    Selected Readings from Newspapers;
+                    Geopolitics and Great-power Strategy;
+                    British and American Culture;
+                    The Art of Dunhuang.
+                </p>
+                </div>
+
+                <div class="additional-group">
+                <h4>Professional Development and Practice</h4>
+                <p>
+                    Career Development and Planning;
+                    Professional Development and Lifelong Learning;
+                    Practice and Professional Development;
+                    Analysis of Professional Characteristics;
+                    Graduation Practice;
+                    Social Practice.
+                </p>
+                </div>
+
+                <div class="additional-group">
+                <h4>Civic and Physical Education</h4>
+                <p>
+                    Moral Cultivation and Legal Basis;
+                    Situation and Policy;
+                    Mao Zedong Thought and the Theoretical System of Socialism with Chinese Characteristics;
+                    The Basic Principle of Marxism;
+                    Military Theory and Training;
+                    Physical Training.
+                </p>
+                </div>
+            </div>
+            </details>
+      </section>
+    </main>
+  </div>
+
+  <!-- ===== REUSABLE COURSE MODAL ===== -->
+
+  <div
+    class="modal-overlay"
+    id="courseModal"
+    aria-hidden="true"
+  >
+    <div
+      class="course-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      aria-describedby="modalDescription"
+    >
+      <header class="modal-header">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+        <button class="modal-close" id="modalClose" type="button" aria-label="Close">
+          ×
+        </button>
+      </header>
+
+      <div class="modal-body">
+        <section class="modal-section">
+          <h3>Coursework</h3>
+          <div id="modalCourses" class="term-groups"></div>
+        </section>
+
+        <section class="modal-section">
+          <h3>Resources</h3>
+          <a
+            class="resource-link"
+            id="modalResource"
+            href="https://github.com/JunTang10"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View related notes on GitHub →
+          </a>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const courseGroups = {
+      "computer-science": {
+        title: "Computer Science Foundations",
+        description:
+          "Programming, software, database, networking, and mathematical foundations.",
+        color: "#9fe1c7",
+        terms: [
+          {
+            label: "Term 1",
+            courses: [
+              "Introduction to Computer Science",
+              "MySQL Database Base"
+            ]
+          },
+          {
+            label: "Term 2",
+            courses: [
+              "Introduction to Programming"
+            ]
+          },
+          {
+            label: "Term 3",
+            courses: [
+              "Data Structure",
+              "Java SE Programming"
+            ]
+          },
+          {
+            label: "Term 4",
+            courses: [
+              "Principle and Design of Database",
+              "HTML and JavaScript Programming",
+              "Java Web Development",
+              "Artificial Intelligence General Course"
+            ]
+          },
+          {
+            label: "Term 6",
+            courses: [
+              "Computer Networking and Communications",
+              "Discrete Mathematics"
+            ]
+          }
+        ],
+        resource: "https://github.com/JunTang10"
+      
+      },
+
+      "data-analytics": {
+        title: "Data Analytics and Statistics",
+        description:
+          "Statistical foundations, analytical methods, econometrics, and data-oriented computing.",
+        color: "#bdb7f2",
+terms: [
+          {
+            label: "Term 2",
+            courses: [
+              "Probability Theory A",
+              "MATLAB Programming Design of Visualization",
+              "Practice Course in Trade Statistics"
+            ]
+          },
+          {
+            label: "Term 4",
+            courses: [
+              "Mathematical Statistics",
+              "Computational Statistics",
+              "Information Retrieval"
+            ]
+          },
+          {
+            label: "Term 5",
+            courses: [
+              "Data Warehouse and Data Mining",
+              "Operations Research",
+              "Data Visualization",
+              "Exploratory Analysis of Big Data"
+            ]
+          },
+          {
+            label: "Term 6",
+            courses: [
+              "Statistical Software (SPSS)"
+            ]
+          },
+          {
+            label: "Term 7",
+            courses: [
+              "Econometrics"
+            ]
+          }
+        ],
+        resource: "https://github.com/JunTang10"
+      },
+        
+
+      "information-systems": {
+        title: "Information Systems",
+        description:
+          "Enterprise systems, systems analysis, information management, and IT project practice.",
+        color: "#f2c3cf",
+        terms: [
+          {
+            label: "Term 5",
+            courses: [
+              "Enterprise Materials Planning",
+              "Software Engineering"
+            ]
+          },
+          {
+            label: "Term 6",
+            courses: [
+              "Information Systems Analysis and Design",
+              "ERP (SAP) Simulation"
+            ]
+          },
+          {
+            label: "Term 7",
+            courses: [
+              "Management Information Systems",
+              "IT Project Management and Practice"
+            ]
+          },
+          {
+            label: "Term 8",
+            courses: [
+              "Graduation Thesis",
+              "Graduation Practice"
+            ]
+          }
+        ],
+        resource: "https://github.com/JunTang10"
+        },
+
+
+      "business-management": {
+        title: "Business and Management",
+        description:
+          "Economics, organisational management, finance, law, and strategic decision-making.",
+        color: "#f2df9b",
+        terms: [
+          {
+            label: "Term 2",
+            courses: [
+              "Political Economics",
+              "Microeconomics"
+            ]
+          },
+          {
+            label: "Term 3",
+            courses: [
+              "Macroeconomics",
+              "Business Tourism"
+            ]
+          },
+          {
+            label: "Term 4",
+            courses: [
+              "Management"
+            ]
+          },
+          {
+            label: "Term 5",
+            courses: [
+              "Accounting",
+              "Public Finance",
+              "Economic Law",
+              "Economy and Politics of the Contemporary World"
+            ]
+          },
+          {
+            label: "Term 6",
+            courses: [
+              "Game Theory",
+              "Venture and Investment"
+            ]
+          }
+        ],
+        resource: "https://github.com/JunTang10"
+      }
+    };
+
+    
+
+    const modal = document.getElementById("courseModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalCourses = document.getElementById("modalCourses");
+    const modalResource = document.getElementById("modalResource");
+    const modalClose = document.getElementById("modalClose");
+
+    let lastFocusedElement = null;
+
+    function openModal(category) {
+      const group = courseGroups[category];
+
+      if (!group) {
+        return;
+      }
+
+      lastFocusedElement = document.activeElement;
+
+      modalTitle.textContent = group.title;
+      modalDescription.textContent = group.description;
+      modalResource.href = group.resource;
+
+      modalCourses.replaceChildren();
+
+      group.courses.forEach((course) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = course;
+        modalCourses.appendChild(listItem);
+      });
+<!--  -->
+      modal.style.setProperty("--modal-color", group.color);
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+      modalClose.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
+    }
+
+    document.querySelectorAll(".card-open").forEach((button) => {
+      button.addEventListener("click", () => {
+        openModal(button.dataset.category);
+      });
+    });
+
+    modalClose.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("is-open")) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
