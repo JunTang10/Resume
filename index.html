@@ -87,11 +87,14 @@
       color: #fff;
     }
 
-    /* Uncomment when you add photo.jpg:
     .avatar {
-      width: 180px; height: 210px;
-      object-fit: cover; border-radius: 6px;
-    } */
+      width: 180px;
+      height: 210px;
+      object-fit: cover;
+      object-position: center 55%;
+      border-radius: 6px;
+      display: block;
+    }
 
     .sidebar h1 {
       font-size: 1.3rem;
@@ -284,7 +287,11 @@
   <!-- ===== SIDEBAR ===== -->
   <aside class="sidebar">
     <!-- Replace with: <img class="avatar" src="photo.jpg" alt="Jun Tang" /> -->
-    <div class="avatar-placeholder">👤</div>
+    <img
+      class="avatar"
+      src="assets/images/avatar01.JPG"
+      alt="Jun Tang"
+    />
 
     <h1>Jun Tang</h1>
     <div class="role">Master's student in Cybersecurity</div>
