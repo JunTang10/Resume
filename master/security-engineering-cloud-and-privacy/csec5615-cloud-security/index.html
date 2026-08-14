@@ -24,19 +24,17 @@
     window.$docsify = {
       name: "CSEC5615 Cloud Security",
 
-      // 默认打开的 Markdown 笔记
+      basePath:
+        "/Resume/master/security-engineering-cloud-and-privacy/csec5615-cloud-security/",
+
       homepage: "cloud-security.md",
 
-      // 打开左侧课程目录
-      loadSidebar: true,
+      loadSidebar: "_sidebar.md",
 
-      // 在左侧目录中显示三级标题
       subMaxLevel: 3,
 
-      // 自动滚动到页面顶部
       auto2top: true,
 
-      // 搜索框提示文字
       search: {
         placeholder: "搜索笔记",
         noData: "没有找到相关内容"
