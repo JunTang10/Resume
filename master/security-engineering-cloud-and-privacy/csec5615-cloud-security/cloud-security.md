@@ -1,6 +1,9 @@
 
 
-
+---
+layout: default
+title: CSEC5615 Cloud Security
+---
 
 
 
