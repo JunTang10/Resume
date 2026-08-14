@@ -1,11 +1,5 @@
 
 
----
-layout: default
-title: CSEC5615 Cloud Security
----
-
-
 
 # 课程总结   从密码学基础 → 云安全机制 → 云基础设施 → 治理合规
 
