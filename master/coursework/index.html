@@ -8,12 +8,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
   <style>
-    :root { --theme-color: #1a56a4; }
+    :root {
+      --theme-color: #1a56a4;
+      --course-sidebar-w: 240px;
+    }
+    .sidebar { width: var(--course-sidebar-w); }
+    .content { left: var(--course-sidebar-w); }
     .app-name-link { font-weight: 700; }
     .course-home {
       position: fixed;
       top: 12px;
-      left: 18px;
+      left: calc(var(--course-sidebar-w) + 16px);
       z-index: 1000;
       display: inline-block;
       padding: 7px 12px;
@@ -31,7 +36,7 @@
       text-decoration: none;
       outline: none;
     }
-    .markdown-section { max-width: 920px; }
+    .markdown-section { max-width: 1080px; }
     .markdown-section img { max-width: 100%; height: auto; }
     .live-toc {
       position: fixed;
@@ -67,7 +72,7 @@
     .live-toc a.active { color: #1a56a4; font-weight: 700; }
     .live-toc-empty { color: #888; font-size: 12px; }
     @media (min-width: 900px) {
-      .content { right: 260px; }
+      .content { right: 245px; }
     }
     @media (max-width: 899px) {
       .live-toc { display: none; }
@@ -76,7 +81,7 @@
   </style>
 </head>
 <body>
-  <a class="course-home" href="../../course.html">← 返回主页面</a>
+  <a class="course-home" href="../../course.html">← Back to Main Page</a>
   <div id="app">Loading coursework…</div>
   <nav class="live-toc" id="liveToc" aria-label="On this page">
     <h2>On this page</h2>

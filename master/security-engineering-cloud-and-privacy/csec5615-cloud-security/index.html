@@ -21,10 +21,26 @@
   >
 
   <style>
+    :root {
+      --course-sidebar-w: 240px;
+    }
+
+    .sidebar {
+      width: var(--course-sidebar-w);
+    }
+
+    .content {
+      left: var(--course-sidebar-w);
+    }
+
+    .markdown-section {
+      max-width: 1080px;
+    }
+
     .back-home {
       position: fixed;
       top: 12px;
-      left: 18px;
+      left: calc(var(--course-sidebar-w) + 16px);
       z-index: 1000;
       padding: 7px 12px;
       border: 1px solid #d8dee8;
@@ -53,7 +69,7 @@
 </head>
 
 <body>
-  <a class="back-home" href="../../../course.html">← 返回主页面</a>
+  <a class="back-home" href="../../../course.html">← Back to Main Page</a>
   <div id="app">正在加载笔记……</div>
 
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
