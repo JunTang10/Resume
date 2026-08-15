@@ -17,18 +17,61 @@
     }
     .markdown-section { max-width: 920px; }
     .markdown-section img { max-width: 100%; height: auto; }
+    .live-toc {
+      position: fixed;
+      top: 74px;
+      right: 20px;
+      width: 230px;
+      max-height: calc(100vh - 98px);
+      padding: 14px 14px 14px 16px;
+      overflow: auto;
+      border-left: 1px solid #e4e7eb;
+      background: rgba(255, 255, 255, 0.96);
+      font: 13px/1.45 system-ui, sans-serif;
+    }
+    .live-toc h2 {
+      margin: 0 0 9px;
+      color: #555;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .live-toc a {
+      display: block;
+      margin: 3px 0;
+      color: #606770;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+    .live-toc a[data-level="3"] { padding-left: 12px; }
+    .live-toc a[data-level="4"] { padding-left: 24px; font-size: 12px; }
+    .live-toc a.active { color: #1a56a4; font-weight: 700; }
+    .live-toc-empty { color: #888; font-size: 12px; }
+    @media (min-width: 1280px) {
+      .content { right: 260px; }
+    }
+    @media (max-width: 1279px) {
+      .live-toc { display: none; }
+    }
   </style>
 </head>
 <body>
   <a class="course-home" href="../../course.html">← Back to Courses</a>
   <div id="app">Loading coursework…</div>
+  <nav class="live-toc" id="liveToc" aria-label="On this page">
+    <h2>On this page</h2>
+    <div id="liveTocLinks" aria-live="polite"></div>
+  </nav>
   <script>
     window.$docsify = {
       name: "Coursework Documents",
       basePath: window.location.pathname,
       homepage: "README.md",
       loadSidebar: true,
-      subMaxLevel: 3,
+      subMaxLevel: 0,
       auto2top: true,
       relativePath: true,
       search: {
@@ -36,6 +79,58 @@
         noData: "No matching content"
       }
     };
+
+    function rebuildLiveToc() {
+      const container = document.getElementById("liveTocLinks");
+      const headings = Array.from(
+        document.querySelectorAll(".markdown-section h2, .markdown-section h3, .markdown-section h4")
+      );
+
+      container.replaceChildren();
+      if (!headings.length) {
+        const empty = document.createElement("p");
+        empty.className = "live-toc-empty";
+        empty.textContent = "No section headings in this document.";
+        container.appendChild(empty);
+        return;
+      }
+
+      const links = headings.map((heading) => {
+        const link = document.createElement("a");
+        link.href = `#${heading.id}`;
+        link.dataset.level = heading.tagName.slice(1);
+        link.textContent = heading.textContent.replace(/#$/, "").trim();
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          heading.scrollIntoView({ behavior: "smooth", block: "start" });
+          history.replaceState(null, "", `${location.hash.split("?")[0]}?id=${heading.id}`);
+        });
+        container.appendChild(link);
+        return link;
+      });
+
+      let current = links[0];
+      current.classList.add("active");
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+        if (!visible) return;
+        current.classList.remove("active");
+        current = links[headings.indexOf(visible.target)];
+        current.classList.add("active");
+        current.scrollIntoView({ block: "nearest" });
+      }, { rootMargin: "-80px 0px -70% 0px" });
+      headings.forEach((heading) => observer.observe(heading));
+    }
+
+    window.$docsify.plugins = [
+      function liveTocPlugin(hook) {
+        hook.doneEach(function () {
+          requestAnimationFrame(rebuildLiveToc);
+        });
+      }
+    ];
   </script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
