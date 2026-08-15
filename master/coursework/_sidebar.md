@@ -7,7 +7,7 @@
   - [INFO5992](5992%2012.8%20copy.md)
 
 - Security, Cryptography and Privacy
-  - [CSEC5615](https://juntang10.github.io/Resume/master/security-engineering-cloud-and-privacy/csec5615-cloud-security/)
+  - [CSEC5615](csec5615-cloud-security.md)
   - [CSEC5616](5616%20A4%201%20copy.md)
   - [CSEC5614 — A4](5614%20A4%20%20copy.md)
   - [CSEC5614 — A4 copy](11.26%20副本5614%20A4%20%2811%29%20copy.md)
