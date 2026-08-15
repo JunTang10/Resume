@@ -11,6 +11,7 @@
     :root {
       --theme-color: #1a56a4;
       --course-sidebar-w: 240px;
+      --live-toc-w: 310px;
     }
     .sidebar { width: var(--course-sidebar-w); }
     .content { left: var(--course-sidebar-w); }
@@ -42,13 +43,36 @@
       position: fixed;
       top: 74px;
       right: 20px;
-      width: 310px;
+      width: var(--live-toc-w);
       max-height: calc(100vh - 98px);
       padding: 14px 14px 14px 16px;
       overflow: auto;
       border-left: 1px solid #e4e7eb;
       background: rgba(255, 255, 255, 0.96);
-      font: 13px/1.45 system-ui, sans-serif;
+      font: 12px/1.45 system-ui, sans-serif;
+    }
+    .live-toc-resizer {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -7px;
+      width: 14px;
+      cursor: ew-resize;
+      touch-action: none;
+    }
+    .live-toc-resizer::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 6px;
+      width: 2px;
+      background: transparent;
+      transition: background 0.15s ease;
+    }
+    .live-toc-resizer:hover::after,
+    .live-toc-resizer.dragging::after {
+      background: #1a56a4;
     }
     .live-toc h2 {
       margin: 0 0 9px;
@@ -61,6 +85,8 @@
       display: block;
       margin: 3px 0;
       color: #606770;
+      font-size: 12px;
+      line-height: 1.45;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -68,11 +94,11 @@
       transition: color 0.15s ease, border-color 0.15s ease;
     }
     .live-toc a[data-level="3"] { padding-left: 12px; }
-    .live-toc a[data-level="4"] { padding-left: 24px; font-size: 12px; }
+    .live-toc a[data-level="4"] { padding-left: 24px; font-size: 11px; }
     .live-toc a.active { color: #1a56a4; font-weight: 700; }
     .live-toc-empty { color: #888; font-size: 12px; }
     @media (min-width: 900px) {
-      .content { right: 325px; }
+      .content { right: calc(var(--live-toc-w) + 15px); }
     }
     @media (max-width: 899px) {
       .live-toc { display: none; }
@@ -84,12 +110,39 @@
   <a class="course-home" href="../../course.html">← Back to Main Page</a>
   <div id="app">Loading coursework…</div>
   <nav class="live-toc" id="liveToc" aria-label="On this page">
+    <div class="live-toc-resizer" id="liveTocResizer" role="separator" aria-label="Resize page navigation" aria-orientation="vertical"></div>
     <h2>On this page</h2>
     <div id="liveTocLinks" aria-live="polite"></div>
   </nav>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
   <script>
+    const savedTocWidth = Number(localStorage.getItem("coursework-toc-width"));
+    if (savedTocWidth >= 220 && savedTocWidth <= 480) {
+      document.documentElement.style.setProperty("--live-toc-w", `${savedTocWidth}px`);
+    }
+
+    const liveTocResizer = document.getElementById("liveTocResizer");
+    liveTocResizer.addEventListener("pointerdown", (event) => {
+      event.preventDefault();
+      liveTocResizer.classList.add("dragging");
+      liveTocResizer.setPointerCapture(event.pointerId);
+    });
+    liveTocResizer.addEventListener("pointermove", (event) => {
+      if (!liveTocResizer.hasPointerCapture(event.pointerId)) return;
+      const width = Math.min(480, Math.max(220, window.innerWidth - 20 - event.clientX));
+      document.documentElement.style.setProperty("--live-toc-w", `${width}px`);
+      localStorage.setItem("coursework-toc-width", String(Math.round(width)));
+    });
+    function stopTocResize(event) {
+      if (liveTocResizer.hasPointerCapture(event.pointerId)) {
+        liveTocResizer.releasePointerCapture(event.pointerId);
+      }
+      liveTocResizer.classList.remove("dragging");
+    }
+    liveTocResizer.addEventListener("pointerup", stopTocResize);
+    liveTocResizer.addEventListener("pointercancel", stopTocResize);
+
     window.$docsify = {
       name: "Coursework Documents",
       basePath: window.location.pathname,
