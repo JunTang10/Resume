@@ -15,9 +15,41 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
   >
+
+  <style>
+    .back-home {
+      position: fixed;
+      top: 12px;
+      left: 18px;
+      z-index: 1000;
+      padding: 7px 12px;
+      border: 1px solid #d8dee8;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      color: #1a56a4;
+      font: 600 13px/1.2 system-ui, sans-serif;
+      text-decoration: none;
+    }
+
+    .back-home:hover,
+    .back-home:focus-visible {
+      border-color: #1a56a4;
+      text-decoration: none;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      .back-home {
+        top: 8px;
+        left: 52px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <a class="back-home" href="../../../course.html">← 返回主页面</a>
   <div id="app">正在加载笔记……</div>
 
   <script>
