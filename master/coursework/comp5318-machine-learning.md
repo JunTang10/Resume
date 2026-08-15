@@ -715,17 +715,23 @@ $$
 ##### 关键公式 / Key Formula
 
 ① MAE 是平均绝对误差，直接看平均预测偏差有多大。MAE is Mean Absolute Error, which measures the average absolute prediction error.
+
 $$
 MAE=\frac{1}{n}\sum_{i=1}^{n}|\hat{y}_i-y_i|
 $$
+
 ② MSE 是平均平方误差，会更重视大的错误。MSE is Mean Squared Error, which penalizes large errors more strongly.
+
 $$
 MSE=\frac{1}{n}\sum_{i=1}^{n}(\hat{y}_i-y_i)^2
 $$
+
 ③ RMSE 是 MSE 开根号，单位和原来的 $y$ 一样。RMSE is the square root of MSE, and its unit is the same as the original $y$.
+
 $$
 RMSE=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(\hat{y}_i-y_i)^2}
 $$
+
 ④ MAE、MSE、RMSE 都可以用来评估 training performance 和 test performance。MAE, MSE, and RMSE can be used to evaluate both training performance and test performance. 
 
 #### 3.6 多元回归 / Multiple Regression
