@@ -1,0 +1,236 @@
+/* Typora-inspired document theme shared by Docsify and Obsidian. */
+:root {
+  --typora-text: #333;
+  --typora-muted: #777;
+  --typora-link: #4183c4;
+  --typora-border: #dfe2e5;
+  --typora-code-bg: #f8f8f8;
+}
+
+.markdown-section,
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 {
+  color: var(--typora-text);
+  font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial,
+    "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.markdown-section {
+  max-width: 1024px;
+  padding-bottom: 100px;
+}
+
+.markdown-preview-view .markdown-preview-sizer,
+.markdown-source-view.mod-cm6 .cm-contentContainer {
+  width: min(1024px, 100%);
+  margin-inline: auto;
+  padding-bottom: 100px;
+}
+
+.markdown-section a,
+.markdown-preview-view a,
+.markdown-source-view.mod-cm6 .cm-link,
+.markdown-source-view.mod-cm6 .cm-hmd-internal-link {
+  color: var(--typora-link);
+}
+
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3,
+.markdown-section h4,
+.markdown-section h5,
+.markdown-section h6,
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6 {
+  position: relative;
+  display: table;
+  clear: both;
+  width: auto;
+  margin: 1rem 0;
+  padding: 3px 8px;
+  border: 0;
+  border-radius: 6px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.markdown-section h1,
+.markdown-preview-view h1,
+.markdown-source-view.mod-cm6 .cm-header-1 {
+  color: #8b1e1e;
+  background: #ffe3e3;
+}
+
+.markdown-section h2,
+.markdown-preview-view h2,
+.markdown-source-view.mod-cm6 .cm-header-2 {
+  color: #6d3b8c;
+  background: #f0e3ff;
+}
+
+.markdown-section h3,
+.markdown-preview-view h3,
+.markdown-source-view.mod-cm6 .cm-header-3 {
+  color: #1f5f8b;
+  background: #e3f0ff;
+}
+
+.markdown-section h4,
+.markdown-preview-view h4,
+.markdown-source-view.mod-cm6 .cm-header-4 {
+  color: #0f766e;
+  background: #dffaf3;
+}
+
+.markdown-section h5,
+.markdown-preview-view h5,
+.markdown-source-view.mod-cm6 .cm-header-5 {
+  color: #7a4b00;
+  background: #fff3cd;
+}
+
+.markdown-section h6,
+.markdown-preview-view h6,
+.markdown-source-view.mod-cm6 .cm-header-6 {
+  color: #555;
+  background: #eee;
+}
+
+.markdown-section h1,
+.markdown-preview-view h1 { font-size: 2.25em; line-height: 1.2; }
+.markdown-section h2,
+.markdown-preview-view h2 { font-size: 1.75em; line-height: 1.225; }
+.markdown-section h3,
+.markdown-preview-view h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-section h4,
+.markdown-preview-view h4 { font-size: 1.25em; }
+.markdown-section h5,
+.markdown-preview-view h5 { font-size: 1em; }
+.markdown-section h6,
+.markdown-preview-view h6 { font-size: 1em; }
+
+.markdown-section p,
+.markdown-section blockquote,
+.markdown-section ul,
+.markdown-section ol,
+.markdown-section dl,
+.markdown-section table,
+.markdown-preview-view p,
+.markdown-preview-view blockquote,
+.markdown-preview-view ul,
+.markdown-preview-view ol,
+.markdown-preview-view dl,
+.markdown-preview-view table {
+  margin-top: 0.35em;
+  margin-bottom: 0.35em;
+}
+
+.markdown-section li,
+.markdown-preview-view li {
+  margin-top: 0.15em;
+  margin-bottom: 0.15em;
+}
+
+.markdown-section li > p,
+.markdown-preview-view li > p {
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+
+.markdown-section ul,
+.markdown-section ol,
+.markdown-preview-view ul,
+.markdown-preview-view ol {
+  padding-left: 24px;
+}
+
+.markdown-section blockquote,
+.markdown-preview-view blockquote {
+  padding: 0 15px;
+  border-left: 4px solid var(--typora-border);
+  color: var(--typora-muted);
+}
+
+.markdown-section hr,
+.markdown-preview-view hr {
+  height: 2px;
+  margin: 16px 0;
+  padding: 0;
+  border: 0;
+  background: #e7e7e7;
+}
+
+.markdown-section code,
+.markdown-section pre,
+.markdown-preview-view code,
+.markdown-preview-view pre,
+.markdown-source-view.mod-cm6 .cm-inline-code:not(.cm-formatting) {
+  border: 1px solid #e7eaed;
+  border-radius: 3px;
+  background: var(--typora-code-bg);
+}
+
+.markdown-section code,
+.markdown-preview-view code,
+.markdown-source-view.mod-cm6 .cm-inline-code:not(.cm-formatting) {
+  padding: 2px 4px;
+  font-size: 0.9em;
+}
+
+.markdown-section pre,
+.markdown-preview-view pre {
+  margin: 15px 0;
+  padding: 8px 10px 6px;
+}
+
+.markdown-section table,
+.markdown-preview-view table {
+  width: 100%;
+  border-collapse: collapse;
+  word-break: initial;
+}
+
+.markdown-section table tr,
+.markdown-preview-view table tr {
+  border: 1px solid var(--typora-border);
+}
+
+.markdown-section table tr:nth-child(2n),
+.markdown-section thead,
+.markdown-preview-view table tr:nth-child(2n),
+.markdown-preview-view thead {
+  background: var(--typora-code-bg);
+}
+
+.markdown-section table th,
+.markdown-section table td,
+.markdown-preview-view table th,
+.markdown-preview-view table td {
+  padding: 6px 13px;
+  border: 1px solid var(--typora-border);
+}
+
+@media (min-width: 1400px) {
+  .markdown-section,
+  .markdown-preview-view .markdown-preview-sizer,
+  .markdown-source-view.mod-cm6 .cm-contentContainer { max-width: 1024px; }
+}
+
+@media (min-width: 1800px) {
+  .markdown-section,
+  .markdown-preview-view .markdown-preview-sizer,
+  .markdown-source-view.mod-cm6 .cm-contentContainer { max-width: 1200px; }
+}
+
+@media print {
+  .markdown-section,
+  .markdown-preview-view { font-size: 13px; }
+  pre { break-inside: avoid; overflow-wrap: break-word; }
+}
