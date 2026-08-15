@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jun Tang | Coursework Documents</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    :root { --theme-color: #1a56a4; }
+    .app-name-link { font-weight: 700; }
+    .course-home {
+      display: inline-block;
+      margin: 12px 0 4px 24px;
+      color: #1a56a4;
+      font: 600 13px/1.4 system-ui, sans-serif;
+      text-decoration: none;
+    }
+    .markdown-section { max-width: 920px; }
+    .markdown-section img { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <a class="course-home" href="../../course.html">← Back to Courses</a>
+  <div id="app">Loading coursework…</div>
+  <script>
+    window.$docsify = {
+      name: "Coursework Documents",
+      basePath: window.location.pathname,
+      homepage: "README.md",
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      relativePath: true,
+      search: {
+        placeholder: "Search coursework",
+        noData: "No matching content"
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+</body>
+</html>
