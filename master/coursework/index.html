@@ -10,11 +10,25 @@
     :root { --theme-color: #1a56a4; }
     .app-name-link { font-weight: 700; }
     .course-home {
+      position: fixed;
+      top: 12px;
+      left: 18px;
+      z-index: 1000;
       display: inline-block;
-      margin: 12px 0 4px 24px;
+      padding: 7px 12px;
+      border: 1px solid #d8dee8;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       color: #1a56a4;
       font: 600 13px/1.4 system-ui, sans-serif;
       text-decoration: none;
+    }
+    .course-home:hover,
+    .course-home:focus-visible {
+      border-color: #1a56a4;
+      text-decoration: none;
+      outline: none;
     }
     .markdown-section { max-width: 920px; }
     .markdown-section img { max-width: 100%; height: auto; }
@@ -56,11 +70,12 @@
     }
     @media (max-width: 899px) {
       .live-toc { display: none; }
+      .course-home { top: 8px; left: 52px; }
     }
   </style>
 </head>
 <body>
-  <a class="course-home" href="../../course.html">← Back to Courses</a>
+  <a class="course-home" href="../../course.html">← 返回主页面</a>
   <div id="app">Loading coursework…</div>
   <nav class="live-toc" id="liveToc" aria-label="On this page">
     <h2>On this page</h2>
