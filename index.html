@@ -228,6 +228,36 @@
       font-size: 0.8rem;
     }
 
+    .experience-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .experience-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border: 1px solid rgba(31, 91, 179, 0.25);
+      border-radius: 7px;
+      background: rgba(31, 91, 179, 0.06);
+      color: var(--accent);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .experience-link:hover,
+    .experience-link:focus-visible {
+      background: rgba(31, 91, 179, 0.13);
+      border-color: rgba(31, 91, 179, 0.5);
+      transform: translateY(-1px);
+    }
+
     .hobbies-line {
       margin-top: 2px;
       color: var(--muted);
@@ -602,6 +632,15 @@
 
           <div class="plain-detail">
             Linux · Networking · Hundsun System · MLPS Level 3 · Bastion Host · Disaster Recovery
+          </div>
+
+          <div class="experience-links" aria-label="Related work notes">
+            <a class="experience-link" href="work-01期货/Futures_Back_Office_Systems_Practice.md" target="_blank" rel="noreferrer">
+              📘 Back-Office Systems Practice
+            </a>
+            <a class="experience-link" href="work-01期货/Futures_and_Derivatives_Fundamentals.md" target="_blank" rel="noreferrer">
+              📚 Futures Fundamentals
+            </a>
           </div>
         </div>
       </div>
