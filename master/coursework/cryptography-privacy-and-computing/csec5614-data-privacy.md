@@ -1,4 +1,4 @@
-# 5614 A4  copy
+# CSEC5614 — Data Privacy
 
 ## CSEC5614 Data Privacy: Theory and Practice - Lecture 1 整理
 

@@ -1,4 +1,32 @@
-# 9001草稿 copy
+# COMP9001 — Introduction to Programming
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Project Overview
 
 这款游戏的灵感来源于澳大利亚的国鸟鸸鹋。它不会飞，但是我在游戏里面设计它可以飞过障碍。
 

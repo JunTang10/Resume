@@ -1,4 +1,4 @@
-# 5616 A4 1 copy
+# CSEC5616 — Security Engineering
 
 ## 1. 第一周 - 安全工程导论总结 / Week 1 - Introduction to Security Engineering Summary
 
@@ -3334,7 +3334,7 @@ Behavioral analysis: Monitor abnormal command sequence
 
 - Main challenge is token revocation difficulty, usually solved by shorter expiry
 
-![5616 A4 1 copy image 1](5616 A4 1 copy_assets/image-001.png)
+![5616 A4 1 copy image 1](<../assets/CSEC5616_assets/image-001.png>)
 
 - 同源策略（SOP） Same-Origin Policy (SOP)
 
@@ -3382,9 +3382,9 @@ Behavioral analysis: Monitor abnormal command sequence
 
 - Application directly concatenates strings to build SQL queries data
 
-![5616 A4 1 copy image 2](5616 A4 1 copy_assets/image-002.png)
+![5616 A4 1 copy image 2](<../assets/CSEC5616_assets/image-002.png>)
 
-![5616 A4 1 copy image 3](5616 A4 1 copy_assets/image-003.png)
+![5616 A4 1 copy image 3](<../assets/CSEC5616_assets/image-003.png>)
 
 - Example: input ' OR 1=1; -- might return all records
 
@@ -3420,9 +3420,9 @@ Behavioral analysis: Monitor abnormal command sequence
 
 - Malicious script submitted to server via URL parameters or forms
 
-![5616 A4 1 copy image 4](5616 A4 1 copy_assets/image-004.png)
+![5616 A4 1 copy image 4](<../assets/CSEC5616_assets/image-004.png>)
 
-![5616 A4 1 copy image 5](5616 A4 1 copy_assets/image-005.png)
+![5616 A4 1 copy image 5](<../assets/CSEC5616_assets/image-005.png>)
 
 - Server directly includes script in response returned to user
 
@@ -3480,7 +3480,7 @@ Behavioral analysis: Monitor abnormal command sequence
 
 - Attacker crafts malicious request, tricks logged-in user's browser to send it
 
-![5616 A4 1 copy image 6](5616 A4 1 copy_assets/image-006.png)
+![5616 A4 1 copy image 6](<../assets/CSEC5616_assets/image-006.png>)
 
 - Server cannot distinguish between user-initiated and induced requests
 
@@ -3580,17 +3580,17 @@ Behavioral analysis: Monitor abnormal command sequence
 
 - Use whitelists to define allowed input, not blacklists to filter dangerous input
 
-![5616 A4 1 copy image 7](5616 A4 1 copy_assets/image-007.png)
+![5616 A4 1 copy image 7](<../assets/CSEC5616_assets/image-007.png>)
 
 - Use appropriate encoding for different contexts (HTML, URL, JavaScript, SQL)    A buffer zone established between the internal network and external network 在内部网络和外部网络之间建立的缓冲区
 
-![5616 A4 1 copy image 8](5616 A4 1 copy_assets/image-008.png)
+![5616 A4 1 copy image 8](<../assets/CSEC5616_assets/image-008.png>)
 
 - 安全开发实践
 
 - 使用经过安全审计的成熟框架和库
 
-![5616 A4 1 copy image 9](5616 A4 1 copy_assets/image-009.png)
+![5616 A4 1 copy image 9](<../assets/CSEC5616_assets/image-009.png>)
 
 - 保持所有组件和依赖项更新到最新版本
 
@@ -3610,32 +3610,32 @@ Behavioral analysis: Monitor abnormal command sequence
 
 - Establish security incident response procedures for quick vulnerability handling
 
-![5616 A4 1 copy image 10](5616 A4 1 copy_assets/image-010.png)
+![5616 A4 1 copy image 10](<../assets/CSEC5616_assets/image-010.png>)
 
-![5616 A4 1 copy image 11](5616 A4 1 copy_assets/image-011.png)
+![5616 A4 1 copy image 11](<../assets/CSEC5616_assets/image-011.png>)
 
-![5616 A4 1 copy image 12](5616 A4 1 copy_assets/image-012.png)
+![5616 A4 1 copy image 12](<../assets/CSEC5616_assets/image-012.png>)
 
-![5616 A4 1 copy image 13](5616 A4 1 copy_assets/image-013.png)
+![5616 A4 1 copy image 13](<../assets/CSEC5616_assets/image-013.png>)
 
-![5616 A4 1 copy image 14](5616 A4 1 copy_assets/image-014.png)
+![5616 A4 1 copy image 14](<../assets/CSEC5616_assets/image-014.png>)
 
-![5616 A4 1 copy image 15](5616 A4 1 copy_assets/image-015.png)
+![5616 A4 1 copy image 15](<../assets/CSEC5616_assets/image-015.png>)
 
-![5616 A4 1 copy image 16](5616 A4 1 copy_assets/image-016.png)
+![5616 A4 1 copy image 16](<../assets/CSEC5616_assets/image-016.png>)
 
-![5616 A4 1 copy image 17](5616 A4 1 copy_assets/image-017.png)
+![5616 A4 1 copy image 17](<../assets/CSEC5616_assets/image-017.png>)
 
-![5616 A4 1 copy image 18](5616 A4 1 copy_assets/image-018.png)
+![5616 A4 1 copy image 18](<../assets/CSEC5616_assets/image-018.png>)
 
-![5616 A4 1 copy image 19](5616 A4 1 copy_assets/image-019.png)
+![5616 A4 1 copy image 19](<../assets/CSEC5616_assets/image-019.png>)
 
-![5616 A4 1 copy image 20](5616 A4 1 copy_assets/image-020.png)
+![5616 A4 1 copy image 20](<../assets/CSEC5616_assets/image-020.png>)
 
-![5616 A4 1 copy image 21](5616 A4 1 copy_assets/image-021.png)
+![5616 A4 1 copy image 21](<../assets/CSEC5616_assets/image-021.png>)
 
-![5616 A4 1 copy image 22](5616 A4 1 copy_assets/image-022.png)
+![5616 A4 1 copy image 22](<../assets/CSEC5616_assets/image-022.png>)
 
-![5616 A4 1 copy image 23](5616 A4 1 copy_assets/image-023.png)
+![5616 A4 1 copy image 23](<../assets/CSEC5616_assets/image-023.png>)
 
-![5616 A4 1 copy image 24](5616 A4 1 copy_assets/image-024.png)
+![5616 A4 1 copy image 24](<../assets/CSEC5616_assets/image-024.png>)

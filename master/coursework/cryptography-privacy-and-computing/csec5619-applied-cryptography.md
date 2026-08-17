@@ -1,4 +1,4 @@
-# 7.20 5619 课程大纲 copy
+# CSEC5619 — Applied Cryptography
 
 ## 第一章.密码学基础概念
 
@@ -1039,7 +1039,7 @@ Q2. (5 points) Decide whether the following functions are suitable to characteri
 
 分子演示式、分母指数（如(c)）属于经典的可忽略函数。
 
-![7.20 5619 课程大纲 copy image 1](7.20 5619 课程大纲 copy_assets/image-001.png)
+![7.20 5619 课程大纲 copy image 1](<../assets/CSEC5619_assets/image-001.png>)
 
 有限次幂的逆算式（如(d)），形式上是(1/n)帕(1/n)^{\text{平常}}（1/ n ）帕，只能战胜有限阶的1/nc1/n^c1/ nc，不符合“对任何ccc”的要求。
 

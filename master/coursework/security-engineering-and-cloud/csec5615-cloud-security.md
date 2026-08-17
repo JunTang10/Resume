@@ -1,6 +1,8 @@
-# 课程总结   从密码学基础 → 云安全机制 → 云基础设施 → 治理合规
+# CSEC5615 — Cloud Security
 
-# \# 🌸CSEC5615 Week 1 — 云安全导论<span style="color: red;">第一周：基础概念</span> 🌸
+## 课程总结：从密码学基础 → 云安全机制 → 云基础设施 → 治理合规
+
+## 🌸 CSEC5615 Week 1 — 云安全导论：第一周基础概念 🌸
 
 **云计算（Cloud Computing）** 通过互联网按需提供计算资源（服务器、存储、数据库、网络）的服务模式，分为 IaaS / PaaS / SaaS 三层。
 
@@ -425,7 +427,7 @@ Misconfigured permissions → Key access → Data decrypted
 - **对称加密**：加解密用同一密钥（如 AES）
 - **非对称加密**：公钥加密、私钥解密（如 RSA）
 
-![image-20260609151644661](csec5615-assets/image-20260609151644661.png)
+![image-20260609151644661](<../assets/CSEC5615_assets/image-20260609151644661.png>)
 
 
 
@@ -818,7 +820,7 @@ PKI / CA / Fingerprint
 
 > 本质上是在问：最聪明的黑客，在最有利的条件下，能破解这个方案吗？ Essentially asking: can the smartest possible hacker, under the most favorable conditions, break this scheme?
 
-![](csec5615-assets/image-20260606190657658.png)
+![](<../assets/CSEC5615_assets/image-20260606190657658.png>)
 
 
 
@@ -962,7 +964,7 @@ c₁ ⊕ c₂ = m₁ ⊕ m₂   ← 密钥消去！Key cancels out!
 
 如何用密码学工具（AES、RSA、Hash、签名）系统性地保护云端数据的**机密性、完整性和认证性**（CIA 三元组）。
 
-![image-20260609153009649](csec5615-assets/image-20260609153009649.png)
+![image-20260609153009649](<../assets/CSEC5615_assets/image-20260609153009649.png>)
 
 
 
@@ -1075,7 +1077,7 @@ c₁ ⊕ c₂ = m₁ ⊕ m₂   ← 密钥消去！Key cancels out!
 
 加密虚拟机 encrypted VMs（AWS EC2、Azure Disk Encryption）、数据库加密 database encryption（AWS RDS、Google Cloud SQL）、安全备份 secure backup（AWS Glacier、Azure Backup）、文件共享 file sharing（Dropbox、Google Drive）
 
-![image-20260609173501149](csec5615-assets/image-20260609173501149.png)
+![image-20260609173501149](<../assets/CSEC5615_assets/image-20260609173501149.png>)
 
 ------
 
@@ -1157,7 +1159,7 @@ c₁ ⊕ c₂ = m₁ ⊕ m₂   ← 密钥消去！Key cancels out!
 
 - 公钥 Public key：(N, e)
 - 私钥 Secret key：d，满足 `e × d ≡ 1 (mod φ(N))`，其中 φ(N) 为欧拉函数（Euler's Totient Function，小于N且与N互质的正整数个数）
-- ![image-20260607213021500](csec5615-assets/image-20260607213021500.png)
+- ![image-20260607213021500](<../assets/CSEC5615_assets/image-20260607213021500.png>)
 
 
 
@@ -1607,7 +1609,7 @@ The server decrypts $P_1$ using its private key and reconstructs $P$ to verify a
 | **A**（服务器应答 Server answer）  | 数据库 D，查询 q / database D, query q                     | 答案 ans / answer ans |
 | **R**（重构 Reconstruction）       | 索引 i，随机数 r，答案 ans / index i, random r, answer ans | D[i]                  |
 
-![image-20260610151936630](csec5615-assets/image-20260610151936630.png)
+![image-20260610151936630](<../assets/CSEC5615_assets/image-20260610151936630.png>)
 
 ------
 
@@ -1932,7 +1934,7 @@ $$
 
 > 正确性 ✅ 隐私性 ✅ ——这就是基于同态加密的PIR完整流程。
 >
-> ![image-20260610161056886](csec5615-assets/image-20260610161056886.png)
+> ![image-20260610161056886](<../assets/CSEC5615_assets/image-20260610161056886.png>)
 
 
 
@@ -1996,7 +1998,7 @@ AES可以加密数据，但：
 
 **3D 方案 3D Scheme**：推广到三维，共 3·∛n 个密文，查询开销进一步降低。 Extended to three dimensions — total 3·∛n ciphertexts, further reducing communication cost.
 
-<img src="csec5615-assets/image-20260610163552178.png" style="zoom: 33%;" /><img src="csec5615-assets/image-20260610164937528.png" alt="image-20260610164937528" style="zoom: 33%;" /><img src="csec5615-assets/image-20260610165051199.png" alt="image-20260610165051199" style="zoom: 33%;" />
+<img src="CSEC5615_assets/image-20260610163552178.png" style="zoom: 33%;" /><img src="CSEC5615_assets/image-20260610164937528.png" alt="image-20260610164937528" style="zoom: 33%;" /><img src="CSEC5615_assets/image-20260610165051199.png" alt="image-20260610165051199" style="zoom: 33%;" />
 
 降低通信开销：二维化 | Bringing Down Communication Costs
 
@@ -2157,7 +2159,7 @@ $n = 1,000,000 $ 时：
 >
 > 
 
-![image-20260610170217766](csec5615-assets/image-20260610170217766.png)
+![image-20260610170217766](<../assets/CSEC5615_assets/image-20260610170217766.png>)
 
 ### 4.1 前提 Assumption
 
@@ -2348,7 +2350,7 @@ $$\text{Eval}(k_0, 2) + \text{Eval}(k_1, 2) = k_0[2] + k_1[2] = e_2[2] = 1 ✅$$
 
 4. 每个服务器看到的密钥是**随机的**，无法推断 a Each server's key looks random — target a remains hidden
 
-   ![image-20260610171555360](csec5615-assets/image-20260610171555360.png)
+   ![image-20260610171555360](<../assets/CSEC5615_assets/image-20260610171555360.png>)
 
    ### 信息论PIR的完整流程 | Full Information Theoretic PIR
 
@@ -2480,7 +2482,7 @@ Image unavailable
 
 [Results from the web](https://support.claude.com/en/articles/13641943-visual-and-interactive-content)
 
-![image-20260608231451704](csec5615-assets/image-20260608231451704.png)
+![image-20260608231451704](<../assets/CSEC5615_assets/image-20260608231451704.png>)
 
 ------
 
@@ -2549,7 +2551,7 @@ PIR 本身就用到了同态加密（Week 6 内容）作为构建模块，三者
 
 
 
-![image-20260608231556967](csec5615-assets/image-20260608231556967.png)
+![image-20260608231556967](<../assets/CSEC5615_assets/image-20260608231556967.png>)
 
 ## ✅一、核心问题：云端存储敏感数据的风险
 
@@ -2990,7 +2992,7 @@ Week 4已见过，用于构建PIR（私有信息检索 Private Information Retri
 
 **手写图的含义：**
 
-![image-20260608210227272](csec5615-assets/image-20260608210227272.png)
+![image-20260608210227272](<../assets/CSEC5615_assets/image-20260608210227272.png>)
 
 即：明文x加密→云端在密文上算f→得到ct_f→授权方解密→得到f(x)，和直接对x算f结果一样。
 
@@ -3039,7 +3041,7 @@ Eval是**公开操作**，无需私钥。/ Eval is a **public operation** — no
 
 Enc 和 Dec 分别需要 pk 和 sk，但 **Eval 只需要 pk**——这正是云端可以执行 Eval 的原因，云端没有私钥，却能在密文上完成计算。
 
-![image-20260608210542344](csec5615-assets/image-20260608210542344.png)
+![image-20260608210542344](<../assets/CSEC5615_assets/image-20260608210542344.png>)
 
 ------
 
@@ -3080,7 +3082,7 @@ C 越大，支持的计算越多：PHE（加法或乘法）→ SWHE（有限次�
 
 ###  General Idea — 同态加密的核心思想
 
-![image-20260608210731315](csec5615-assets/image-20260608210731315.png)
+![image-20260608210731315](<../assets/CSEC5615_assets/image-20260608210731315.png>)
 
 ------
 
@@ -3149,7 +3151,7 @@ Enc(m₁) · Enc(m₂) = Enc(m₁ · m₂)
 
 Textbook RSA is insecure (not CPA-secure); whether secure variants are homomorphic is an open problem.
 
-![image-20260608210804172](csec5615-assets/image-20260608210804172.png)
+![image-20260608210804172](<../assets/CSEC5615_assets/image-20260608210804172.png>)
 
 **Limited Homomorphism — RSA 的有限同态性**
 
@@ -3198,7 +3200,7 @@ RSA 是**有限同态**的典型例子——只支持乘法，不支持加法，
 
 - 应用：**电子投票** / Used in **e-voting**
 
-  ![image-20260608212126210](csec5615-assets/image-20260608212126210.png)**Paillier 加密方案（加法同态）— 用于电子投票**
+  ![image-20260608212126210](<../assets/CSEC5615_assets/image-20260608212126210.png>)**Paillier 加密方案（加法同态）— 用于电子投票**
 
   ------
 
@@ -3268,8 +3270,8 @@ RSA 是**有限同态**的典型例子——只支持乘法，不支持加法，
 - 基于**格密码学**，非数论 / Based on lattices, not number theory
 - 具备**后量子安全性** / Post-quantum secure
 - 核心思想：加入受控噪声 / Key idea: add controlled noise
-- ![image-20260608210058106](csec5615-assets/image-20260608210058106.png)
-- ![image-20260608210042511](csec5615-assets/image-20260608210042511.png)
+- ![image-20260608210058106](<../assets/CSEC5615_assets/image-20260608210058106.png>)
+- ![image-20260608210042511](<../assets/CSEC5615_assets/image-20260608210042511.png>)
 
 ------
 
@@ -3282,7 +3284,7 @@ The system `s·A + e = b` becomes computationally hard even for quantum computer
 - **LWE搜索问题**：给定 (A, b)，找 s / Find **s** given (A, b)
 - **LWE判定问题**：区分 (A, b=sA+e) 与随机 / Distinguish (A, b) from random
 - LWE假设 ⟹ **CPA安全性** / LWE assumption ⟹ CPA security
-- ![image-20260608205945269](csec5615-assets/image-20260608205945269.png)
+- ![image-20260608205945269](<../assets/CSEC5615_assets/image-20260608205945269.png>)
 
 ### Regev加密方案 / Regev Encryption
 
@@ -4495,7 +4497,7 @@ Genesis Block              ↑
 
 
 
-![image-20260608154128524](csec5615-assets/image-20260608154128524.png)
+![image-20260608154128524](<../assets/CSEC5615_assets/image-20260608154128524.png>)
 
 **Bitcoin (BTC)** — 橙色₿图标 第一个区块链货币，2009年中本聪（Satoshi Nakamoto）发布。使用 PoW，是整个加密货币领域的起点。
 
@@ -4592,9 +4594,9 @@ Genesis Block              ↑
 
   工具示例 Tool：**Hyperledger Fabric**是一个支持透明 transparent 和不可篡改 immutable 日志的区块链框架，帮助机构审计操作 audit operations、检测异常 detect anomalies。
 
-- ![image-20260608171520550](csec5615-assets/image-20260608171520550.png)主要是**节点配置、链码部署、日志查询**的后台系统
+- ![image-20260608171520550](<../assets/CSEC5615_assets/image-20260608171520550.png>)主要是**节点配置、链码部署、日志查询**的后台系统
 
-- ![image-20260608171602689](csec5615-assets/image-20260608171602689.png)
+- ![image-20260608171602689](<../assets/CSEC5615_assets/image-20260608171602689.png>)
 
 #### **去中心化身份管理 / Decentralized Identity (SSI)**
 
@@ -4616,7 +4618,7 @@ Genesis Block              ↑
   >
   > 😊传统的方式是平台说你是谁，现在的方式是你自己说你自己是谁！！😏😏😏
   >
-  > ![image-20260608171912726](csec5615-assets/image-20260608171912726.png)就像你用同一个护照 Passport 进入不同国家，SSI 让你用同一个数字身份访问不同云平台，而且没有任何一个平台存储你的密码。(😭我去俄罗斯旅游，诈骗电话打到我们当地的公安局😭)
+  > ![image-20260608171912726](<../assets/CSEC5615_assets/image-20260608171912726.png>)就像你用同一个护照 Passport 进入不同国家，SSI 让你用同一个数字身份访问不同云平台，而且没有任何一个平台存储你的密码。(😭我去俄罗斯旅游，诈骗电话打到我们当地的公安局😭)
   >
   > 🤔中国现在很火的那个数字身份证是为了识别还是为了告诉系统🤔
   >
@@ -4777,7 +4779,7 @@ Smart contract auto-settles based on rules
 
 ## ✅六、case 公平云计算支付 / Fair Payments for Cloud Computation。🤔现实场景交易概述🤔
 
-![image-20260608182320372](csec5615-assets/image-20260608182320372.png)
+![image-20260608182320372](<../assets/CSEC5615_assets/image-20260608182320372.png>)
 
 **核心矛盾 / Core Problem：** 用户不想先付钱后被骗，云不想先交结果后收不到钱。The user does not want to pay without getting the result, and the cloud does not want to deliver without getting paid.
 

@@ -157,7 +157,7 @@ $$
 
 
 
-![image-20260617110920489](comp5318-assets/image-20260617110920489.png)
+![image-20260617110920489](<../assets/COMP5318_assets/image-20260617110920489.png>)
 
 ① 红线：训练误差，看模型在训练数据上错多少。Red line = train error, mistakes on training data. ② 蓝线：验证误差，看模型在新数据上错多少。Blue line = validation error, mistakes on unseen data. ③ 选 k 主要看蓝线，因为它更能代表泛化能力。Choose k by blue line because it shows generalisation. ④ 在 $10^0,10^1,10^2$ 里，选 $10^1=10$。Among them, choose $10^1=10$. ⑤ 因为 k=10 时验证误差最低，新数据表现最好。Because k=10 has the lowest validation error, so it performs best on new data.。
 
@@ -1115,7 +1115,7 @@ Weather 例子
 
 #### 3.3 数值属性 / Numeric Attributes
 
-![image-20260617000517841](comp5318-assets/image-20260617000517841.png)
+![image-20260617000517841](<../assets/COMP5318_assets/image-20260617000517841.png>)
 
 ① 数值属性：连续数字型属性，如 temperature、age、income。Numeric attributes are continuous values.
 
@@ -1199,13 +1199,13 @@ Weather 例子
 
 ⑤ 最后只用测试集评估一次，得到最终结果。Evaluate once on the test set for the final result.
 
-![image-20260617002010555](comp5318-assets/image-20260617002010555.png)
+![image-20260617002010555](<../assets/COMP5318_assets/image-20260617002010555.png>)
 
 
 
 ### ✅5. 性能指标 / Performance Measures
 
-![image-20260617002458934](comp5318-assets/image-20260617002458934.png)
+![image-20260617002458934](<../assets/COMP5318_assets/image-20260617002458934.png>)
 
 #### 5.1 Accuracy 准确率 / Accuracy
 
@@ -1252,7 +1252,7 @@ Weather 例子
 
 ##### 核心意思 / Core Meaning
 
-![image-20260617012044681](comp5318-assets/image-20260617012044681.png)
+![image-20260617012044681](<../assets/COMP5318_assets/image-20260617012044681.png>)
 
 ① 决策树是一种常见的机器学习和数据挖掘方法。A decision tree is a common machine learning and data mining method.
 
@@ -1318,7 +1318,7 @@ Weather 例子
 
 ⑤ 如果 work exp. > 3y = yes，预测 accept；否则预测 reject。If work exp. > 3y = yes, predict accept; otherwise, predict reject.
 
-![image-20260617012155310](comp5318-assets/image-20260617012155310.png)
+![image-20260617012155310](<../assets/COMP5318_assets/image-20260617012155310.png>)
 
 #### 1.5 属性选择 / Attribute Selection
 
@@ -1332,7 +1332,7 @@ Weather 例子
 
 ④ 越 pure 的节点，越不需要继续分裂，树也会更小。The purer the node, the less further splitting is needed, and the smaller the tree becomes.
 
-![image-20260617012658264](comp5318-assets/image-20260617012658264.png)
+![image-20260617012658264](<../assets/COMP5318_assets/image-20260617012658264.png>)
 
 
 
@@ -1358,7 +1358,7 @@ Weather 例子
 
 ③ entropy 越大，类别越混杂。The larger the entropy, the more mixed the classes are.
 
-④ 在二分类任务中，entropy 的范围通常是 0 到 1。In binary classification, entropy usually ranges from 0 to 1.![image-20260617012737125](comp5318-assets/image-20260617012737125.png)
+④ 在二分类任务中，entropy 的范围通常是 0 到 1。In binary classification, entropy usually ranges from 0 to 1.![image-20260617012737125](<../assets/COMP5318_assets/image-20260617012737125.png>)
 
 ##### 关键公式 / Key Formula
 
@@ -1508,7 +1508,7 @@ a) 关于类别 holiday，这组训练样本的 entropy（熵）是多少？
 
 
 
-![image-20260617120815354](comp5318-assets/image-20260617120815354.png)
+![image-20260617120815354](<../assets/COMP5318_assets/image-20260617120815354.png>)
 
 
 
@@ -1586,7 +1586,7 @@ $\boxed{weather}$
 
 
 
-![image-20260617111023280](comp5318-assets/image-20260617111023280.png)
+![image-20260617111023280](<../assets/COMP5318_assets/image-20260617111023280.png>)
 
 
 
@@ -1602,7 +1602,7 @@ a) 关于类别 holiday，这组训练样本的 entropy（熵）是多少？
 
 
 
-![image-20260617120815354](comp5318-assets/image-20260617120815354.png)
+![image-20260617120815354](<../assets/COMP5318_assets/image-20260617120815354.png>)
 
 
 
@@ -1680,7 +1680,7 @@ $\boxed{weather}$
 
 
 
-![image-20260617111023280](comp5318-assets/image-20260617111023280.png)
+![image-20260617111023280](<../assets/COMP5318_assets/image-20260617111023280.png>)
 
 
 
@@ -1761,7 +1761,7 @@ $\boxed{weather}$
 
 ④ 如果新树 accuracy 变差，就不剪这个节点。If the new tree has worse accuracy, do not prune this node.
 
-![image-20260617013007959](comp5318-assets/image-20260617013007959.png)
+![image-20260617013007959](<../assets/COMP5318_assets/image-20260617013007959.png>)
 
 ### 4. 特殊属性处理 / Handling Special Attributes
 
@@ -1805,7 +1805,7 @@ $\boxed{weather}$
 
 ⑥ PPT 中这个 split 的 information gain 是 0.09 bits。In the PPT, the information gain for this split is 0.09 bits.
 
-![image-20260617013116924](comp5318-assets/image-20260617013116924.png)
+![image-20260617013116924](<../assets/COMP5318_assets/image-20260617013116924.png>)
 
 #### 4.3 高分支属性问题 / Highly Branching Attributes Problem
 
@@ -1949,7 +1949,7 @@ $\boxed{weather}$
 
 ③ 25 个 classifiers 中，至少 13 个预测错，majority vote 才会错。Among 25 classifiers, at least 13 must be wrong for the majority vote to be wrong.
 
-![image-20260617013307905](comp5318-assets/image-20260617013307905.png)
+![image-20260617013307905](<../assets/COMP5318_assets/image-20260617013307905.png>)
 
 ##### 关键公式 / Key Formula
 
@@ -1993,7 +1993,7 @@ $$
 
 
 
-![image-20260617110816763](comp5318-assets/image-20260617110816763.png)
+![image-20260617110816763](<../assets/COMP5318_assets/image-20260617110816763.png>)
 
 (1) 这种集成方法是什么？What ensemble method is this? 这是装袋法。因为它从原始训练集抽出多个数据子集，分别训练多个分类器，最后再合并预测。This is Bagging, because it creates multiple sampled datasets, trains separate classifiers, and combines their outputs.
  (2) 装袋法和提升方法有什么区别？What is the difference between Bagging and Boosting? 装袋法是并行训练，通常用有放回抽样，主要降低方差。Bagging trains models in parallel, usually with bootstrap sampling, and mainly reduces variance. 提升方法是顺序训练，后一个模型重点修正前一个模型的错误，主要降低偏差。Boosting trains models sequentially, focuses on previous mistakes, and mainly reduces bias
@@ -2010,7 +2010,7 @@ $$
 
 ④ 最后把多个 classifiers 的结果组合起来。Finally, the predictions of multiple classifiers are combined.
 
-![image-20260617013656309](comp5318-assets/image-20260617013656309.png)
+![image-20260617013656309](<../assets/COMP5318_assets/image-20260617013656309.png>)
 
 #### 2.2 Bootstrap Sample / 自助采样
 
@@ -2100,7 +2100,7 @@ $$
 
 #### 3.2 AdaBoost 是什么 / What Is AdaBoost
 
-![image-20260617013755770](comp5318-assets/image-20260617013755770.png)
+![image-20260617013755770](<../assets/COMP5318_assets/image-20260617013755770.png>)
 
 ① 矩形 = 样本。 Rectangle = example.② 高度 = 样本权重。 Height = example weight.③ √ / × = 当前分类器对错。 √ / × = correct or incorrect classification.④ 树大小 = 分类器投票权重。Tree size = classifier voting weight.
 
@@ -2188,7 +2188,7 @@ $$
 
 ##### 核心意思 / Core Meaning
 
-![image-20260617014218447](comp5318-assets/image-20260617014218447.png)
+![image-20260617014218447](<../assets/COMP5318_assets/image-20260617014218447.png>)
 
 
 
@@ -2425,7 +2425,7 @@ $$
 
 #### 1.3 为什么有很多 Decision Boundaries / Why There Are Many Decision Boundaries
 
-![image-20260617014353369](comp5318-assets/image-20260617014353369.png)
+![image-20260617014353369](<../assets/COMP5318_assets/image-20260617014353369.png>)
 
 ##### 核心问题 / Core Problem
 
@@ -2449,7 +2449,7 @@ $$
 
 ④ 小 margin 更容易 overfit，因为边界附近一点点变化就可能改变分类结果。A small margin is more likely to overfit because small changes near the boundary may change classification results.
 
-![image-20260617014512208](comp5318-assets/image-20260617014512208.png)
+![image-20260617014512208](<../assets/COMP5318_assets/image-20260617014512208.png>)
 
 #### 1.5 Support Vectors / 支持向量
 
@@ -2465,13 +2465,13 @@ $$
 
 ⑤ 可以每个 class 有多个 support vectors。There can be multiple support vectors for each class.
 
-![image-20260617014526972](comp5318-assets/image-20260617014526972.png)
+![image-20260617014526972](<../assets/COMP5318_assets/image-20260617014526972.png>)
 
 #### 1.6 Maximum Margin Hyperplane / 最大间隔超平面
 
 ##### 核心意思 / Core Meaning
 
-![image-20260617014539494](comp5318-assets/image-20260617014539494.png)
+![image-20260617014539494](<../assets/COMP5318_assets/image-20260617014539494.png>)
 
 ① maximum margin hyperplane 是 margin 最大的 hyperplane。The maximum margin hyperplane is the hyperplane with the largest margin.
 
@@ -2509,7 +2509,7 @@ $$
 
 The following figure illustrates a feature transformation idea in SVM. Explain the purposes of this transformation in one or two sentences. (2 points)
 
-![image-20260617111108734](comp5318-assets/image-20260617111108734.png)
+![image-20260617111108734](<../assets/COMP5318_assets/image-20260617111108734.png>)
 
 变换目的：把原来不能用直线分开的数据，映射到更高维空间，让它更容易被 linear SVM 分开。Map non-linearly separable data to higher dimension so linear SVM can separate it.
 
@@ -2533,7 +2533,7 @@ $$
 $$
 ④ 这里 sign 表示看结果是正数还是负数。Here, sign means checking whether the result is positive or negative.
 
-![image-20260617014710357](comp5318-assets/image-20260617014710357.png)
+![image-20260617014710357](<../assets/COMP5318_assets/image-20260617014710357.png>)
 
 #### 2.3 SVM 的三条 Hyperplanes / Three Hyperplanes in SVM
 
@@ -2706,7 +2706,7 @@ $$
 
 ③ non-linear SVM 可以找到非线性的 decision boundary。Non-linear SVM can find a non-linear decision boundary.
 
-![image-20260617020605446](comp5318-assets/image-20260617020605446.png)
+![image-20260617020605446](<../assets/COMP5318_assets/image-20260617020605446.png>)
 
 #### 4.2 Non-linear SVM 的核心思想 / Core Idea of Non-linear SVM
 
@@ -2977,7 +2977,7 @@ $$
 ④ 例如二维数据中，如果数据主要沿着斜线方向分布，那么 PCA 会把这个斜线方向作为 $Z_1$，然后把二维数据压缩成一维。
  For example, in 2D data, if most variation lies along a diagonal direction, PCA treats that direction as $Z_1$ and compresses the data into 1D.
 
-![image-20260617020914059](comp5318-assets/image-20260617020914059.png)
+![image-20260617020914059](<../assets/COMP5318_assets/image-20260617020914059.png>)
 
 
 
@@ -2985,7 +2985,7 @@ $$
 
 
 
-![image-20260617020930071](comp5318-assets/image-20260617020930071.png)
+![image-20260617020930071](<../assets/COMP5318_assets/image-20260617020930071.png>)
 
 ### 3. 如何选择保留多少主成分 / How to Choose the Number of Principal Components
 
@@ -3008,7 +3008,7 @@ $$
 ③ elbow 后继续增加维度，收益变小，所以可以在 elbow 附近选择 $k$。
  After the elbow, adding more dimensions gives smaller benefits, so $k$ can be chosen near the elbow.
 
-![image-20260617020952302](comp5318-assets/image-20260617020952302.png)
+![image-20260617020952302](<../assets/COMP5318_assets/image-20260617020952302.png>)
 
 ------
 
@@ -3078,7 +3078,7 @@ $$
 ⑤ 新特征可以继续用于训练分类器，比如 kNN、Naive Bayes 等。
  The new features can be used to train classifiers such as kNN and Naive Bayes.
 
-![image-20260617020837279](comp5318-assets/image-20260617020837279.png)
+![image-20260617020837279](<../assets/COMP5318_assets/image-20260617020837279.png>)
 
 #### 5.2 人脸识别例子 / Face Recognition Example
 
@@ -3141,11 +3141,11 @@ $$
 ④ MNIST 手写数字原始有 784 个特征，PCA 压缩后用 153 个特征可以保留 95% 方差。
  MNIST handwritten digits originally have 784 features; PCA compresses them to 153 features while preserving 95% variance.
 
-![image-20260617021048525](comp5318-assets/image-20260617021048525.png)
+![image-20260617021048525](<../assets/COMP5318_assets/image-20260617021048525.png>)
 
 ------
 
-![image-20260617021059368](comp5318-assets/image-20260617021059368.png)
+![image-20260617021059368](<../assets/COMP5318_assets/image-20260617021059368.png>)
 
 ### 7. 这份 PPT 的核心逻辑 / Overall Logic
 
@@ -3235,11 +3235,11 @@ $$
 ③ **训练时，模型不断调整 weights，让输出更接近 target。**
  During training, the model adjusts weights so that the output becomes closer to the target.
 
-![image-20260617021354909](comp5318-assets/image-20260617021354909.png)
+![image-20260617021354909](<../assets/COMP5318_assets/image-20260617021354909.png>)
 
 #### 2.2 Neuron 的计算逻辑
 
-![image-20260617021341098](comp5318-assets/image-20260617021341098.png)
+![image-20260617021341098](<../assets/COMP5318_assets/image-20260617021341098.png>)
 
 ① **每个 neuron 做的是：输入 × 权重 + bias，然后通过 transfer function。**
  Each neuron computes input multiplied by weights plus a bias, then passes the result through a transfer function.
@@ -3262,7 +3262,7 @@ $$
 ③ **它的输出来自 weighted sum，再经过 step function。**
  Its output comes from a weighted sum followed by a step function.
 
-![image-20260617021445320](comp5318-assets/image-20260617021445320.png)
+![image-20260617021445320](<../assets/COMP5318_assets/image-20260617021445320.png>)
 
 #### 3.2 Perceptron 怎么学习
 
@@ -3279,7 +3279,7 @@ $$
 ③ **epoch 指完整看完一遍 training set。**
  An epoch means one full pass through the whole training set.
 
-![image-20260613171842728](comp5318-assets/image-20260613171842728.png)
+![image-20260613171842728](<../assets/COMP5318_assets/image-20260613171842728.png>)
 
 #### 3.3 Perceptron 的能力和限制
 
@@ -3295,9 +3295,9 @@ $$
 ④ **XOR 不能用单层 perceptron 表示，因为它不是 linearly separable。**
  XOR cannot be represented by a single-layer perceptron because it is not linearly separable. 
 
-​    ![image-20260617021610988](comp5318-assets/image-20260617021610988.png)![image-20260617021618029](comp5318-assets/image-20260617021618029.png)
+​    ![image-20260617021610988](<../assets/COMP5318_assets/image-20260617021610988.png>)![image-20260617021618029](<../assets/COMP5318_assets/image-20260617021618029.png>)
 
-![image-20260613171817375](comp5318-assets/image-20260613171817375.png)
+![image-20260613171817375](<../assets/COMP5318_assets/image-20260613171817375.png>)
 
 ### 4. Multi-layer Perceptrons and Backpropagation / 多层感知机与反向传播
 
@@ -3350,17 +3350,17 @@ $$
 ③ **太小会 slow convergence，太大会 oscillation 或不收敛。**
  If it is too small, convergence is slow; if too large, training may oscillate or fail to converge.
 
-![image-20260617021645572](comp5318-assets/image-20260617021645572.png)
+![image-20260617021645572](<../assets/COMP5318_assets/image-20260617021645572.png>)
 
-![image-20260617021722047](comp5318-assets/image-20260617021722047.png)
+![image-20260617021722047](<../assets/COMP5318_assets/image-20260617021722047.png>)
 
-![image-20260617021835060](comp5318-assets/image-20260617021835060.png)
+![image-20260617021835060](<../assets/COMP5318_assets/image-20260617021835060.png>)
 
-![image-20260617021908503](comp5318-assets/image-20260617021908503.png)
+![image-20260617021908503](<../assets/COMP5318_assets/image-20260617021908503.png>)
 
-![image-20260617021918656](comp5318-assets/image-20260617021918656.png)
+![image-20260617021918656](<../assets/COMP5318_assets/image-20260617021918656.png>)
 
-![image-20260617021941338](comp5318-assets/image-20260617021941338.png)
+![image-20260617021941338](<../assets/COMP5318_assets/image-20260617021941338.png>)
 
 #### 4.5 SGD 和 Momentum
 
@@ -3405,14 +3405,14 @@ $$
 ① **ReLU：减少 sigmoid saturation 带来的 vanishing gradient。**
  ReLU reduces the vanishing gradient problem caused by sigmoid saturation.
 
-![image-20260617022010323](comp5318-assets/image-20260617022010323.png)
+![image-20260617022010323](<../assets/COMP5318_assets/image-20260617022010323.png>)
 
 ② **Dropout：随机关闭部分 neurons，减少 overfitting。**
  Dropout randomly disables some neurons during training to reduce overfitting.
 
-![image-20260617022026097](comp5318-assets/image-20260617022026097.png)
+![image-20260617022026097](<../assets/COMP5318_assets/image-20260617022026097.png>)
 
-![image-20260617022044655](comp5318-assets/image-20260617022044655.png)
+![image-20260617022044655](<../assets/COMP5318_assets/image-20260617022044655.png>)
 
 ③ **Better initialization：让初始 weights 更合理，避免训练一开始就很差。**
  Better initialization makes initial weights more suitable and avoids poor starting conditions.
@@ -3478,9 +3478,9 @@ $$
 ④ **它对 shifting / translation 更 robust，也就是图像稍微移动一点，CNN 仍然比较容易识别。**
  CNNs are more robust to shifts or translations, meaning they can still recognize objects even if they move slightly in the image. 
 
-![image-20260617022112698](comp5318-assets/image-20260617022112698.png)
+![image-20260617022112698](<../assets/COMP5318_assets/image-20260617022112698.png>)
 
-![image-20260617022123779](comp5318-assets/image-20260617022123779.png)
+![image-20260617022123779](<../assets/COMP5318_assets/image-20260617022123779.png>)
 
 #### 2.2 图像在 CNN 里怎么表示 / Image Representation in CNN
 
@@ -3513,7 +3513,7 @@ $$
 
 ### 3. CNN 的结构 / CNN Structure
 
-![image-20260617022143693](comp5318-assets/image-20260617022143693.png)
+![image-20260617022143693](<../assets/COMP5318_assets/image-20260617022143693.png>)
 
 #### 3.1 CNN 的基本结构 / Basic CNN Architecture
 
@@ -5258,7 +5258,7 @@ $$
 
 - 试卷二 Q17（四种聚类类型匹配及算法举例）
 
-  ![image-20260617185314422](comp5318-assets/image-20260617185314422.png)
+  ![image-20260617185314422](<../assets/COMP5318_assets/image-20260617185314422.png>)
 
 ### 1.试卷上的题目 Question 7. K-means clustering
 
@@ -5272,7 +5272,7 @@ Run the k-means algorithm to group these examples into 2 clusters for 1 epoch. T
 
 
 
-![image-20260617135358637](comp5318-assets/image-20260617135358637.png)
+![image-20260617135358637](<../assets/COMP5318_assets/image-20260617135358637.png>)
 
 
 
@@ -5701,7 +5701,7 @@ $$
 
 #### 8.1 基本思想 / Basic Idea
 
-![image-20260617190358443](comp5318-assets/image-20260617190358443.png)
+![image-20260617190358443](<../assets/COMP5318_assets/image-20260617190358443.png>)
 
 
 
@@ -5835,7 +5835,7 @@ $$
 
 ### 9. DBSCAN / Density-Based Clustering
 
-*![image-20260617135727460](comp5318-assets/边界声和躁点.png)
+*![image-20260617135727460](<../assets/COMP5318_assets/边界声和躁点.png>)
 
 #### 9.1 DBSCAN 的基本思想 / Basic Idea of DBSCAN
 
@@ -6222,11 +6222,11 @@ $$
 
 
 
-![image-20260617143136258](comp5318-assets/image-20260617143136258.png)
+![image-20260617143136258](<../assets/COMP5318_assets/image-20260617143136258.png>)
 
 ### 4. Hidden Markov Model / 隐马尔可夫模型 HMM
 
-![image-20260617143613070](comp5318-assets/image-20260617143613070.png)
+![image-20260617143613070](<../assets/COMP5318_assets/image-20260617143613070.png>)
 
 
 
