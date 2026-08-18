@@ -281,10 +281,12 @@
       text-decoration: underline;
     }
 
+    .phishguard-techline { display: inline; }
+
     .project-doc-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      display: inline;
+      white-space: nowrap;
+      gap: 0;
       margin: 0 0 0 10px;
       font-family: system-ui, sans-serif;
       font-size: 0.68rem;
@@ -293,7 +295,8 @@
     }
 
     .project-doc-links a {
-      padding: 3px 7px;
+      padding: 2px 5px;
+      margin-right: 5px;
       border: 1px solid #d8e1ef;
       border-radius: 5px;
       color: #1a56a4;
@@ -736,9 +739,7 @@
             <li>Combined on-device machine learning with LLM-based risk analysis to improve detection and reduce false positives.</li>
           </ul>
 
-          <div class="plain-detail">
-            Swift · SwiftUI · Python · FastAPI · AI/ML · LLM/RAG · Multimodal Processing
-          </div>
+          <span class="plain-detail phishguard-techline">Swift · SwiftUI · Python · FastAPI · AI/ML · LLM/RAG · Multimodal Processing</span>
           <span class="project-doc-links" aria-label="PhishGuard project documents">
             <a href="projects/#/phishguard-initial-version.md" target="_blank" rel="noreferrer">Initial Version</a>
             <a href="projects/#/phishguard-team-optimization.md" target="_blank" rel="noreferrer">Team Optimization</a>
