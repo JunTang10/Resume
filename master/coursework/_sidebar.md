@@ -1,3 +1,4 @@
+- <!-- Sidebar updated: project learning and interested courses are at the bottom -->
 - [Coursework Home](/)
 
 - **Cybersecurity and Management**
