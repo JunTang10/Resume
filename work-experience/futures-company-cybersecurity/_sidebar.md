@@ -1,3 +1,4 @@
-- [Hardware & System Configuration Research](/Hardware_and_System_Configuration_Research.md)
-- [Back-Office Systems Practice](/Futures_Back_Office_Systems_Practice.md)
-- [Futures & Derivatives Fundamentals](/Futures_and_Derivatives_Fundamentals.md)
+- [Hardware Config](/Hardware_and_System_Configuration_Research.md)
+- [Back-Office](/Futures_Back_Office_Systems_Practice.md)
+- [Futures Basics](/Futures_and_Derivatives_Fundamentals.md)
+- [Laws & Regulations](/Laws_and_Regulations.md)
