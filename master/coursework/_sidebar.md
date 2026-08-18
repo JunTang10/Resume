@@ -1,5 +1,3 @@
-- [Project Learning](/project-learning.md)
-- [Blockchain Technology and Applications](/interested-course/blockchain-technology-and-applications.md)
 - [Coursework Home](/)
 
 - **Cybersecurity and Management**
@@ -17,3 +15,7 @@
   - [CSEC5619 — Applied Cryptography](/cryptography-privacy-and-computing/csec5619-applied-cryptography.md)
   - [COMP9001 — Introduction to Programming](/cryptography-privacy-and-computing/comp9001-introduction-to-programming.md)
   - [COMP5318 — Machine Learning and Data Mining](/cryptography-privacy-and-computing/comp5318-machine-learning-and-data-mining.md)
+
+- **Additional Learning**
+  - [Project Learning](/project-learning.md)
+  - [Blockchain Technology and Applications](/interested-course/blockchain-technology-and-applications.md)
