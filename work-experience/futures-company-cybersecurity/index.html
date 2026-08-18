@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jun Tang | Futures Operations Notes</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+  <link rel="stylesheet" href="../../../assets/css/typora-docs.css">
+  <style>
+    :root { --theme-color:#1a56a4; --notes-sidebar-w:240px; --live-toc-w:310px; }
+    .sidebar { width:var(--notes-sidebar-w); }
+    .content { left:var(--notes-sidebar-w); }
+    .app-name-link { font-weight:700; }
+    .back-home { position:fixed; top:12px; left:calc(var(--notes-sidebar-w) + 16px); z-index:1000; padding:7px 12px; border:1px solid #d8dee8; border-radius:7px; background:rgba(255,255,255,.96); box-shadow:0 2px 8px rgba(0,0,0,.08); color:#1a56a4; font:600 13px/1.4 system-ui,sans-serif; text-decoration:none; }
+    .back-home:hover,.back-home:focus-visible { border-color:#1a56a4; text-decoration:none; outline:none; }
+    .markdown-section { max-width:1080px; }
+    .markdown-section img { max-width:100%; height:auto; }
+    .live-toc { position:fixed; top:74px; right:20px; width:var(--live-toc-w); max-height:calc(100vh - 98px); padding:14px 14px 14px 16px; overflow:auto; border-left:1px solid #e4e7eb; background:rgba(255,255,255,.96); font:12px/1.45 system-ui,sans-serif; }
+    .live-toc h2 { margin:0 0 9px; color:#555; font-size:12px; letter-spacing:.04em; text-transform:uppercase; }
+    .live-toc a { display:block; margin:3px 0; color:#606770; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-decoration:none; }
+    .live-toc a[data-level="2"] { margin-top:7px; color:#3f4f61; font-size:13.5px; font-weight:700; }
+    .live-toc a[data-level="3"] { padding-left:14px; font-weight:500; }
+    .live-toc a[data-level="4"] { padding-left:30px; color:#727b86; font-size:11px; }
+    .live-toc a.active { color:#1a56a4; font-weight:700; }
+    @media (min-width:900px) { .content { right:calc(var(--live-toc-w) + 15px); } }
+    @media (max-width:899px) { .live-toc { display:none; } .back-home { top:8px; left:52px; } }
+  </style>
+</head>
+<body>
+  <a class="back-home" href="../../../index.html#experience">← Back to Main Page</a>
+  <div id="app">Loading futures operations notes…</div>
+  <nav class="live-toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <div id="liveTocLinks"></div>
+  </nav>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js"></script>
+  <script>
+    window.$docsify = {
+      name: "Futures Operations Notes",
+      basePath: window.location.pathname,
+      homepage: "Futures_Back_Office_Systems_Practice.md",
+      loadSidebar: true,
+      subMaxLevel: 0,
+      auto2top: true,
+      relativePath: false,
+      search: { placeholder:"Search futures notes", noData:"No matching content" }
+    };
+
+    function rebuildLiveToc() {
+      const container = document.getElementById("liveTocLinks");
+      const headings = Array.from(document.querySelectorAll(".markdown-section h2, .markdown-section h3, .markdown-section h4"));
+      container.replaceChildren();
+      if (!headings.length) { container.textContent = "No section headings in this document."; return; }
+      const links = headings.map((heading) => {
+        const link = document.createElement("a");
+        link.href = "#" + heading.id;
+        link.dataset.level = heading.tagName.slice(1);
+        link.textContent = heading.textContent.replace(/#$/, "").trim();
+        link.addEventListener("click", (event) => { event.preventDefault(); heading.scrollIntoView({behavior:"smooth",block:"start"}); });
+        container.appendChild(link);
+        return link;
+      });
+      let current = links[0];
+      current.classList.add("active");
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting).sort((a,b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+        if (!visible) return;
+        current.classList.remove("active");
+        current = links[headings.indexOf(visible.target)];
+        current.classList.add("active");
+        current.scrollIntoView({block:"nearest"});
+      }, {rootMargin:"-80px 0px -70% 0px"});
+      headings.forEach((heading) => observer.observe(heading));
+    }
+
+    window.$docsify.plugins = [function(hook) {
+      hook.doneEach(function() {
+        const article = document.querySelector(".markdown-section");
+        if (article && window.renderMathInElement) {
+          renderMathInElement(article, {
+            delimiters: [
+              {left:"$$",right:"$$",display:true},
+              {left:"$",right:"$",display:false},
+              {left:"\\[",right:"\\]",display:true},
+              {left:"\\(",right:"\\)",display:false}
+            ],
+            throwOnError:false
+          });
+        }
+        requestAnimationFrame(rebuildLiveToc);
+      });
+    }];
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+</body>
+</html>
