@@ -1,4 +1,5 @@
 - [Project Learning](/project-learning.md)
+- [Blockchain Technology and Applications](/interested-course/blockchain-technology-and-applications.md)
 - [Coursework Home](/)
 
 - **Cybersecurity and Management**
