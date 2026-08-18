@@ -259,6 +259,26 @@
       transform: translateY(-1px);
     }
 
+    .projects-hub-link {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 2px 7px;
+      border: 1px solid #c8d6ec;
+      border-radius: 5px;
+      color: var(--accent);
+      font-size: 0.68rem;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+      vertical-align: middle;
+    }
+
+    .projects-hub-link:hover,
+    .projects-hub-link:focus-visible {
+      background: #f2f6fc;
+      text-decoration: underline;
+    }
+
     .project-doc-links {
       display: flex;
       flex-wrap: wrap;
@@ -674,7 +694,7 @@
 
     <!-- Projects -->
     <section id="projects">
-      <div class="section-title">🔬 Projects</div>
+      <div class="section-title">🔬 Projects <a class="projects-hub-link" href="projects/" target="_blank" rel="noreferrer">Open project files</a></div>
 
       <div class="media-entry">
         <!-- Put the image at: assets/images/project-phishguard.jpg -->
@@ -712,12 +732,6 @@
 
           <div class="plain-detail">
             Swift · SwiftUI · Python · FastAPI · AI/ML · LLM/RAG · Multimodal Processing
-          </div>
-
-          <div class="project-doc-links" aria-label="PhishGuard project documents">
-            <a class="experience-link" href="https://github.com/JunTang10/Resume/blob/main/phishguard-initial-version.md" target="_blank" rel="noreferrer">🧪 Initial Version</a>
-            <a class="experience-link" href="https://github.com/JunTang10/Resume/blob/main/phishguard-team-optimization.md" target="_blank" rel="noreferrer">🛠️ Team Optimization</a>
-            <a class="experience-link" href="https://github.com/JunTang10/Resume/blob/main/phishguard-literature-reviews.md" target="_blank" rel="noreferrer">📚 Literature Reviews</a>
           </div>
         </div>
       </div>
