@@ -253,11 +253,28 @@
     .project-learning-card {
       grid-column: 1 / -1;
       min-height: auto;
-      padding: 20px 28px;
-      background: linear-gradient(135deg, #f4f0ff, #eef6ff);
+      padding: 12px 24px;
+      background: var(--note-blue);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 28px;
     }
 
-    .project-learning-card h3 { margin-bottom: 8px; }
+    .project-learning-card h3 {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      white-space: nowrap;
+      font-size: 1rem;
+    }
+
+    .project-learning-card ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .project-learning-card li { margin: 0; }
 
     .note-card {
       min-height: 300px;
