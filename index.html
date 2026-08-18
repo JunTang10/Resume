@@ -281,6 +281,19 @@
       text-decoration: underline;
     }
 
+    .phishguard-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 4px;
+    }
+
+    .phishguard-meta .project-doc-links {
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
     .phishguard-techline { display: inline; }
 
     .project-doc-links {
@@ -741,13 +754,15 @@
             <li>Combined on-device machine learning with LLM-based risk analysis to improve detection and reduce false positives.</li>
           </ul>
 
-          <span class="plain-detail phishguard-techline">Swift · SwiftUI · Python · FastAPI · AI/ML · LLM/RAG · Multimodal Processing</span>
-          <span class="project-doc-links" aria-label="PhishGuard project documents">
+          <div class="phishguard-meta">
+            <span class="plain-detail phishguard-techline">Swift · SwiftUI · Python · FastAPI · AI/ML · LLM/RAG · Multimodal Processing</span>
+            <span class="project-doc-links" aria-label="PhishGuard project documents">
             <a href="projects/#/phishguard-initial-version.md" target="_blank" rel="noreferrer">Initial Version</a>
             <a href="projects/#/phishguard-team-optimization.md" target="_blank" rel="noreferrer">Team Optimization</a>
             <a href="projects/#/phishguard-literature-reviews.md" target="_blank" rel="noreferrer">Literature Reviews</a>
             <a href="https://github.com/JunTang10?tab=repositories" target="_blank" rel="noreferrer">Source Code</a>
-          </span>
+            </span>
+          </div>
         </div>
       </div>
 
