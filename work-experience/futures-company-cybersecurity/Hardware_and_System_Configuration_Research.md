@@ -86,7 +86,7 @@ status: "研究笔记整理稿"
 | 特征 | One Touch w/PW，带密码或安全控制功能 |
 | 主要用途 | 文件归档、跨平台存储和硬件配置实验 |
 
-![Seagate One Touch 5TB HDD 相关资料](硬件与系统配置研究_assets/image-20260703020942644.png)
+![Seagate One Touch 5TB HDD 相关资料](Hardware_and_System_Configuration_Research_assets/image-20260703020942644.png)
 
 *图 3　Seagate One Touch 5TB HDD 的产品或兼容性资料截图*
 
@@ -239,11 +239,11 @@ Windows 能够正常识别、格式化并读写该硬盘。macOS Sequoia 15.7.3 
 
 由于 Windows 可以稳定识别该设备，后续使用 Windows 对 Seagate 5TB HDD 进行格式化，并将文件系统设置为 exFAT。
 
-![Windows 中的硬盘配置界面](硬件与系统配置研究_assets/image-20260703021119340.png)
+![Windows 中的硬盘配置界面](Hardware_and_System_Configuration_Research_assets/image-20260703021119340.png)
 
 *图 4　Windows 环境中的硬盘识别或配置界面（一）*
 
-![Windows 中的目录或磁盘结果](硬件与系统配置研究_assets/image-20260703021233672.png)
+![Windows 中的目录或磁盘结果](Hardware_and_System_Configuration_Research_assets/image-20260703021233672.png)
 
 *图 5　Windows 环境中的硬盘识别或配置界面（二）*
 
@@ -303,29 +303,29 @@ Jun-Archive-01
 
 随后在 Disk Utility 中选择“显示所有设备”，但仍未看到 Seagate 外置硬盘。这一步排除了单纯的 Finder 显示问题，并表明故障位于文件浏览器以下的系统层次。
 
-![Finder 外置磁盘显示设置](硬件与系统配置研究_assets/image-20260702224401244.png)
+![Finder 外置磁盘显示设置](Hardware_and_System_Configuration_Research_assets/image-20260702224401244.png)
 
 *图 6　Finder 中的外置磁盘显示设置*
 
-![macOS 配件连接权限设置一](硬件与系统配置研究_assets/image-20260702224638692.png)
+![macOS 配件连接权限设置一](Hardware_and_System_Configuration_Research_assets/image-20260702224638692.png)
 
 *图 7　macOS 配件连接权限检查（一）*
 
-![macOS 配件连接权限设置二](硬件与系统配置研究_assets/image-20260702224714314.png)
+![macOS 配件连接权限设置二](Hardware_and_System_Configuration_Research_assets/image-20260702224714314.png)
 
 *图 8　macOS 配件连接权限检查（二）*
 
-![macOS 识别提示](硬件与系统配置研究_assets/image-20260702230355719.png)
+![macOS 识别提示](Hardware_and_System_Configuration_Research_assets/image-20260702230355719.png)
 
 *图 9　硬盘连接时出现的系统提示或短暂识别现象*
 
-![Disk Utility 检查结果](硬件与系统配置研究_assets/image-20260702232755520.png)
+![Disk Utility 检查结果](Hardware_and_System_Configuration_Research_assets/image-20260702232755520.png)
 
 *图 10　Disk Utility 中未显示 Seagate 外置磁盘*
 
-![System Information 检查结果一](硬件与系统配置研究_assets/image-20260702224238929.png)
+![System Information 检查结果一](Hardware_and_System_Configuration_Research_assets/image-20260702224238929.png)
 
-![System Information 检查结果二](硬件与系统配置研究_assets/image-20260702222838745.png)
+![System Information 检查结果二](Hardware_and_System_Configuration_Research_assets/image-20260702222838745.png)
 
 *图 11—12　System Information 中的 USB 设备检查结果*
 
@@ -346,21 +346,21 @@ diskutil activity
 - `diskutil eraseDisk` 没有可以指定的目标；
 - 故障不能通过反复手动挂载或格式化解决。
 
-![diskutil list external 结果一](硬件与系统配置研究_assets/image-20260702230955833.png)
+![diskutil list external 结果一](Hardware_and_System_Configuration_Research_assets/image-20260702230955833.png)
 
-![diskutil list external 结果二](硬件与系统配置研究_assets/image-20260702231052223.png)
+![diskutil list external 结果二](Hardware_and_System_Configuration_Research_assets/image-20260702231052223.png)
 
 *图 13—14　`diskutil` 未返回目标外置磁盘*
 
-![ioreg 初步检查结果](硬件与系统配置研究_assets/image-20260702231543147.png)
+![ioreg 初步检查结果](Hardware_and_System_Configuration_Research_assets/image-20260702231543147.png)
 
 *图 15　磁盘层或 USB 层初步命令检查结果*
 
-![磁盘标识检查](硬件与系统配置研究_assets/image-20260702223301087.png)
+![磁盘标识检查](Hardware_and_System_Configuration_Research_assets/image-20260702223301087.png)
 
 *图 16　系统中存在的磁盘标识及手动挂载条件检查*
 
-![system_profiler 命令结果](硬件与系统配置研究_assets/image-20260702230105359.png)
+![system_profiler 命令结果](Hardware_and_System_Configuration_Research_assets/image-20260702230105359.png)
 
 *图 17　命令行中的外置设备检查结果*
 
@@ -379,39 +379,39 @@ ioreg -p IOUSB -l | grep -i "0bc2"
 
 系统曾短暂识别到 `One Touch w/PW`，并出现过 `IOUSBMassStorageDriver` 相关信息，但当前检查不能稳定找到 Seagate、One Touch 或厂商标识 `0bc2`。这说明 Mac 并非从未看到该设备，而是在 USB 通信或驱动绑定过程中未能保持稳定状态。
 
-![USB 设备曾被识别](硬件与系统配置研究_assets/image-20260702230647885.png)
+![USB 设备曾被识别](Hardware_and_System_Configuration_Research_assets/image-20260702230647885.png)
 
 *图 18　macOS 曾在 USB 层识别到相关设备*
 
-![ioreg 设备状态](硬件与系统配置研究_assets/image-20260702231953031.png)
+![ioreg 设备状态](Hardware_and_System_Configuration_Research_assets/image-20260702231953031.png)
 
 *图 19　`ioreg` 检查中设备短暂出现或初始化失败的证据*
 
-![diskutil activity 检查](硬件与系统配置研究_assets/image-20260702232033387.png)
+![diskutil activity 检查](Hardware_and_System_Configuration_Research_assets/image-20260702232033387.png)
 
 *图 20　`diskutil activity` 未观察到外置磁盘创建事件*
 
-![用户权限检查](硬件与系统配置研究_assets/image-20260702232506153.png)
+![用户权限检查](Hardware_and_System_Configuration_Research_assets/image-20260702232506153.png)
 
 *图 21　用户权限及相关命令检查结果*
 
-![USB 设备树检查一](硬件与系统配置研究_assets/image-20260702233148182.png)
+![USB 设备树检查一](Hardware_and_System_Configuration_Research_assets/image-20260702233148182.png)
 
-![USB 设备树检查二](硬件与系统配置研究_assets/image-20260702233239276.png)
+![USB 设备树检查二](Hardware_and_System_Configuration_Research_assets/image-20260702233239276.png)
 
-![USB 设备树检查三](硬件与系统配置研究_assets/image-20260702233319588.png)
+![USB 设备树检查三](Hardware_and_System_Configuration_Research_assets/image-20260702233319588.png)
 
-![USB 与磁盘层对比](硬件与系统配置研究_assets/image-20260702233350962.png)
+![USB 与磁盘层对比](Hardware_and_System_Configuration_Research_assets/image-20260702233350962.png)
 
 *图 22—25　USB 设备树、Mass Storage 驱动与磁盘层对比检查*
 
-![APFS 或磁盘结构检查](硬件与系统配置研究_assets/image-20260702233732701.png)
+![APFS 或磁盘结构检查](Hardware_and_System_Configuration_Research_assets/image-20260702233732701.png)
 
 *图 26　进一步确认文件系统或磁盘结构并非当前故障入口*
 
-![设备活动状态检查](硬件与系统配置研究_assets/image-20260702234527895.png)
+![设备活动状态检查](Hardware_and_System_Configuration_Research_assets/image-20260702234527895.png)
 
-![Mass Storage 驱动检查](硬件与系统配置研究_assets/image-20260702234826010.png)
+![Mass Storage 驱动检查](Hardware_and_System_Configuration_Research_assets/image-20260702234826010.png)
 
 *图 27—28　USB 活动和 Mass Storage 驱动检查结果*
 
@@ -434,19 +434,19 @@ log stream --predicate 'subsystem == "com.apple.usb"' --style compact
 
 这些信息支持如下故障路径：macOS 一度完成了初步 USB 枚举，并尝试按 Mass Storage 设备加载驱动，但在通信过程中出现超时和重置，最终未能稳定创建磁盘设备节点。
 
-![USB 日志检查](硬件与系统配置研究_assets/image-20260702234923502.png)
+![USB 日志检查](Hardware_and_System_Configuration_Research_assets/image-20260702234923502.png)
 
 *图 29　USB 日志或设备插入事件检查*
 
-![完整设备信息检查](硬件与系统配置研究_assets/image-20260702235203485.png)
+![完整设备信息检查](Hardware_and_System_Configuration_Research_assets/image-20260702235203485.png)
 
 *图 30　未经过筛选的设备信息检查结果*
 
-![导出 USB 信息](硬件与系统配置研究_assets/image-20260702235313225.png)
+![导出 USB 信息](Hardware_and_System_Configuration_Research_assets/image-20260702235313225.png)
 
 *图 31　将 `system_profiler` 输出保存为文件以便分析*
 
-![最终命令检查结果](硬件与系统配置研究_assets/image-20260703000151162.png)
+![最终命令检查结果](Hardware_and_System_Configuration_Research_assets/image-20260703000151162.png)
 
 *图 32　最终阶段的 USB 或 Mass Storage 检查结果*
 
